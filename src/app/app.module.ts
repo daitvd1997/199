@@ -13,13 +13,19 @@ import { AlertModule } from 'ngx-alerts';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreatePartnerComponent } from './components/create-partner/create-partner.component';
+import { FooterComponent } from './fixlayout/footer/footer.component';
+import { SidebarComponent } from './fixlayout/sidebar/sidebar.component';
+import { HeaderComponent } from './fixlayout/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    CreatePartnerComponent
+    CreatePartnerComponent,
+    FooterComponent,
+    HeaderComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

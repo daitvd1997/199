@@ -6,21 +6,22 @@ import { CreatePartnerComponent } from "./components/create-partner/create-partn
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  {
-    path: "dashboard",
-    component: DashboardComponent,
-    canActivate: [AuthGuard],
-    children: [
-      // { path : 'mentor', component: MentorComponent},
-      { path: "home", component: DashboardComponent },
-    ]
-  },
+  // {
+  //   path: "dashboard",
+  //   component: DashboardComponent,
+  //   canActivate: [AuthGuard],
+  //   children: [
+  //     // { path : 'mentor', component: MentorComponent},
+  //     { path: "dashboard", component: DashboardComponent },
+  //   ]
+  // },
   { path: "home", redirectTo: 'dashboard/home' },
+  { path: "dashboard", component: DashboardComponent },
   { path: "createPartner", component: CreatePartnerComponent },
   { path: "login", component: LoginComponent },
   { path: "dashboard", redirectTo: 'dashboard/dashboard' },
   { path: "createPartner", redirectTo: 'dashboard/createPartner' },
-  { path: "**", component: LoginComponent }
+  // { path: "**", component: LoginComponent }
 ];
 
 @NgModule({

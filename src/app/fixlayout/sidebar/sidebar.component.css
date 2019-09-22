@@ -1,0 +1,9 @@
+.sidebar-wrapper {
+    position: relative;
+    float: left;
+    overflow: auto;
+    width: 260px;
+    z-index: 4;
+    height: 100vh;
+    box-shadow: inset -1px 0px 0px 0px #DDDDDD;
+  }

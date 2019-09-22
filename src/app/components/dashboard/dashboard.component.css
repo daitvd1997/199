@@ -5,11 +5,56 @@
   background-color: #f4f3ef;
   transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
+
+.sidebar {
+  width: 260px;
+  display: block;
+  font-weight: 200;
+}
+
+.sidebar .logo {
+  border-bottom: 1px solid rgba(102, 97, 91, 0.3);
+}
+
+.sidebar .logo {
+  padding: 18px 0px;
+  margin: 0 20px;
+}
+
+.sidebar .logo .simple-text {
+  color: #66615B;
+}
+
+.sidebar .logo .simple-text, .off-canvas-sidebar .logo .simple-text {
+  text-transform: uppercase;
+  padding: 4px 0px;
+  display: block;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.sidebar-wrapper {
+  position: relative;
+  overflow: auto;
+  width: 260px;
+  z-index: 4;
+  box-shadow: inset -1px 0px 0px 0px #DDDDDD;
+}
+
+.wrapper {
+  position: relative;
+  top: 0;
+  height: 100vh;
+}
+
 .main-panel .content {
   padding: 0 30px 30px;
   min-height: calc(100vh - 123px);
   margin-top: 93px;
 }
+
 .card {
   border-radius: 12px;
   box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
@@ -18,38 +63,49 @@
   margin-bottom: 20px;
   position: relative;
   border: 0;
-  transition: box-shadow 0.2s ease,
-    -webkit-transform 0.3s cubic-bezier(0.34, 2, 0.6, 1);
+  transition: box-shadow 0.2s ease, -webkit-transform 0.3s cubic-bezier(0.34, 2, 0.6, 1);
   transition: transform 0.3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.2s ease;
-  transition: transform 0.3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.2s ease,
-    -webkit-transform 0.3s cubic-bezier(0.34, 2, 0.6, 1);
+  transition: transform 0.3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.2s ease, -webkit-transform 0.3s cubic-bezier(0.34, 2, 0.6, 1);
 }
+
 .card-body {
-    flex: 1 1 auto;
-    border: 0
+  flex: 1 1 auto;
+  border: 0
 }
+
 .card-stats .card-body {
-    padding: 15px 15px 0;
+  padding: 15px 15px 0;
 }
+
 .card .card-body {
-    padding: 15px 15px 10px;
+  padding: 15px 15px 10px;
 }
+
 .card-stats .card-footer {
-    padding: 15px 15px 15px;
+  padding: 15px 15px 15px;
 }
+
 .card-stats .card-footer .stats {
-    color: #9a9a9a;
+  color: #9a9a9a;
 }
+
 .card-stats .card-footer hr {
-    margin-top: 10px;
-    margin-bottom: 15px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
+
 hr {
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid rgba(0,0,0,.1);
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 991px) {
+  .main-panel {
+    width: 100%;
+  }
 }
