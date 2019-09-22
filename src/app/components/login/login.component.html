@@ -1,0 +1,28 @@
+<div class="sufee-login d-flex align-content-center flex-wrap">
+    <div class="login-top">
+        <div class="login-logo">
+            <a href="index.html">
+                <img class="align-content" src="images/logo.png" alt="">
+            </a>
+        </div>
+        <h1>LOGIN</h1>
+        <div class="login-ic">
+            <input type="email" placeholder="Email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+            <div class="clear"></div>
+        </div>
+        <div class="login-ic">
+            <input type="password" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+            <div class="clear"></div>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Ghi nhớ đăng nhập
+            </label>
+            <label class="pull-right">
+                <a href="#">Quên mật khẩu?</a>
+                <a [routerLink]="['/createPartner']">Thêm Partner</a>
+            </label>
+        </div>
+        <button class="log-bwn" (click)="loginFuntion()">Đăng Nhập</button>
+    </div>
+</div>
