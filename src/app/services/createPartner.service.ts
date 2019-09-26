@@ -18,7 +18,7 @@ export class CreatePartnerService {
   }
 
   createPartner(createPartnerModel: CreatePartnerModel) {
-    return this.http.post<any>(
+    return this.http.post<ResponseModel>(
       environment.apiUrl + "/api/admin/create-partner",
       createPartnerModel
     );

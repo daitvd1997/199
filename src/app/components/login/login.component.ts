@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         this.authenticationService.logout();
       } else {
         this.alertService.success('Đăng nhập thành công');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
       }
     });
 

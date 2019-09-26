@@ -6,26 +6,28 @@ import { CreatePartnerComponent } from "./components/create-partner/create-partn
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  // {
-  //   path: "dashboard",
-  //   component: DashboardComponent,
-  //   canActivate: [AuthGuard],
-  //   children: [
-  //     // { path : 'mentor', component: MentorComponent},
-  //     { path: "dashboard", component: DashboardComponent },
-  //   ]
-  // },
-  { path: "home", redirectTo: 'dashboard/home' },
-  { path: "dashboard", component: DashboardComponent },
-  { path: "createPartner", component: CreatePartnerComponent },
+  {
+    path: "dashboard",
+    canActivate: [AuthGuard],
+    children: [      
+      { path: "createPartner", component: CreatePartnerComponent },
+      { path: '', component: DashboardComponent },
+    ]
+  },
+  { path: "", redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: "dashboard", redirectTo: 'dashboard', pathMatch: 'full' },
   { path: "login", component: LoginComponent },
-  { path: "dashboard", redirectTo: 'dashboard/dashboard' },
-  { path: "createPartner", redirectTo: 'dashboard/createPartner' },
-  // { path: "**", component: LoginComponent }
+  // { path: "home", redirectTo: 'dashboard/home' },
+  // { path: "dashboard", component: DashboardComponent },
+  { path: "createPartner", redirectTo: 'dashboard/createPartner', pathMatch: 'full' },
+  // { path: "login", component: LoginComponent },
+  // { path: "dashboard", redirectTo: 'dashboard/dashboard' },
+  // { path: "createPartner", redirectTo: 'dashboard/createPartner' },
+  { path: "**", redirectTo: '' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ResponseModel } from "src/app/models/responseModel";
 import { CreatePartnerService } from "src/app/services/createPartner.service";
 import { CreatePartnerModel } from "src/app/models/createPartnerModel";
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: "app-create-partner",
@@ -11,7 +12,7 @@ import { CreatePartnerModel } from "src/app/models/createPartnerModel";
 export class CreatePartnerComponent implements OnInit {
   responseToken: ResponseModel;
   createPartnerModel = new CreatePartnerModel();
-  constructor(private createPartnerService: CreatePartnerService) {}
+  constructor(private createPartnerService: CreatePartnerService,private alertService: AlertService) {}
 
   ngOnInit() {
     this.getToken();
@@ -27,9 +28,11 @@ export class CreatePartnerComponent implements OnInit {
     console.log(this.createPartnerModel.token = this.responseToken.data)
     this.createPartnerService
       .createPartner(this.createPartnerModel)
-      .subscribe((result: any) => {
+      .subscribe(result => {
         console.log(result);
         console.log(result.message);
+        this.alertService.success(result.message);
+        this.createPartnerModel = new CreatePartnerModel();
       });
   }
 }

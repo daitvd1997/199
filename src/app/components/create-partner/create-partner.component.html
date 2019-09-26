@@ -3,22 +3,16 @@
     <h2 class="title_regis common_style">Tất Cả Đại Lý</h2>
     <form method="post" action="">
         <div class="input_container">
-            <label for="userlogin">Tên đăng nhập</label>
-            <input type="text" name="user_login" [(ngModel)]="createPartnerModel.name" required
-                class="input_section">
-        </div>
-        <div class="input_container">
             <label for="username">Tên Đại lí</label>
-            <input type="text" name="username" [(ngModel)]="createPartnerModel.username" required class="input_section">
+            <input type="text" name="username" [(ngModel)]="createPartnerModel.name" required class="input_section">
         </div>
-        <div class="input_container">
-                <label for="rate">Đánh Giá</label>
-                <input type="text" name="rate" [(ngModel)]="createPartnerModel.rate" required class="input_section">
-            </div>
+        <!-- <div class="input_container">
+            <label for="rate">Đánh Giá</label>
+            <input type="text" name="rate" [(ngModel)]="createPartnerModel.rate" required class="input_section">
+        </div> -->
         <div class="input_container">
             <label for="phone">Số Điện Thoại</label>
-            <input type="number" name="phone" [(ngModel)]="createPartnerModel.phone" required
-                class="input_section">
+            <input type="number" name="phone" [(ngModel)]="createPartnerModel.phone" required class="input_section">
         </div>
         <div class="input_container">
             <label for="apikey">API Key</label>
@@ -26,23 +20,23 @@
         </div>
         <div class="input_container">
             <label for="urlPostBack">URL Post Back</label>
-            <input type="text" [(ngModel)]="createPartnerModel.urlPostBack" name="urlPostBack" required
-                class="input_section">
+            <input type="text" [(ngModel)]="createPartnerModel.urlPostBack" name="urlPostBack" required class="input_section">
+        </div>
+        <div class="input_container">
+            <label for="userlogin">Tên đăng nhập</label>
+            <input type="text" name="user_login" [(ngModel)]="createPartnerModel.username" required class="input_section">
         </div>
         <div class="input_container">
             <label for="password">Mật Khẩu</label>
-            <input type="password" [(ngModel)]="createPartnerModel.password" name="password" required
-                class="input_section">
+            <input type="password" [(ngModel)]="createPartnerModel.password" name="password" required class="input_section">
         </div>
         <div class="input_container">
             <label for="repassword">Xác Nhận Mật Khẩu</label>
-            <input type="password" name="repassword" required
-                class="input_section">
+            <input type="password" name="repassword" required class="input_section">
         </div>
 
         <div class="btn_container">
-            <input type="submit" name="submit_memDL" value="Tạo tài khoản" (click)="createPartnerFuntion()"
-                class="btn btn-info">
+            <input type="submit" name="submit_memDL" value="Tạo tài khoản" (click)="createPartnerFuntion()" class="btn btn-info">
         </div>
     </form>
 </div>
