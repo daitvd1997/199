@@ -13,9 +13,7 @@ import { AlertModule } from 'ngx-alerts';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreatePartnerComponent } from './components/create-partner/create-partner.component';
-import { FooterComponent } from './fixlayout/footer/footer.component';
-import { SidebarComponent } from './fixlayout/sidebar/sidebar.component';
-import { HeaderComponent } from './fixlayout/header/header.component';
+// import {ChartModule} from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -23,9 +21,6 @@ import { HeaderComponent } from './fixlayout/header/header.component';
     LoginComponent,
     DashboardComponent,
     CreatePartnerComponent,
-    FooterComponent,
-    HeaderComponent,
-    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +32,7 @@ import { HeaderComponent } from './fixlayout/header/header.component';
     MaterialModule,
     FormsModule,
     ZoomModule,
+    // ChartModule,
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'})
   
   ],

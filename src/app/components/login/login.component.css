@@ -1,65 +1,383 @@
 body {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 100%;
-    background: url(images/bbb.jpg)no-repeat;
-    background-size: cover;
+    overflow-x: hidden
 }
 
-.login-top {
-    width: 460px;
-    display: block;
-    margin: 0 auto;
-}
-.checkbox {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.login-ic {
-    background: rgba(179, 179, 179, 0.32);
-    margin-bottom: 1.5em;
-    padding: 8px;
-}
-
-.login-ic input[type="email"], .login-ic input[type="password"] {
-    float: left;
-    background: none;
-    outline: none;
-    font-size: 15px;
-    font-weight: 400;
-    color: #000;
-    padding: 10px 16px;
-    border: none;
-    width: 82%;
+a, i {
     display: inline-block;
-    margin-left: 7px;
+    text-decoration: none;
+    -webkit-transition: all .3s;
+    transition: all .3s
 }
 
-.clear {
-    clear: both;
+a:focus, a:hover, i:focus, i:hover {
+    text-decoration: none
 }
 
-.log-bwn {
-    text-align: center;
+.container-fluid {
+    padding: 0 30px
 }
 
-.log-bwn {
-    font-size: 15px;
-    font-weight: 700;
-    color: #fff;
-    padding: 13px 0;
-    background: #ff3366;
-    display: inline-block;
+@media (max-width:575px) {
+    .container-fluid {
+        padding: 0 15px
+    }
+}
+
+[class*=icon-] {
+    -webkit-transform: translateY(3px);
+    transform: translateY(3px)
+}
+
+button, input {
+    outline: 0!important
+}
+
+.bg-white {
+    background: #fff!important
+}
+
+.page {
+    background: #eef5f9
+}
+
+.page .text-white {
+    color: #fff
+}
+
+.page {
+    overflow-x: hidden
+}
+
+.has-shadow {
+    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, .1), -1px 0 2px rgba(0, 0, 0, .05);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .1), -1px 0 2px rgba(0, 0, 0, .05)
+}
+
+footer.main-footer {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    outline: none;
-    border: 2px solid #ff3366;
-    cursor: pointer;
-    text-transform: uppercase;
+    background: #2f333e;
+    color: #fff;
+    padding: 20px 10px
 }
-.login-top h1 {
-    font-size: 2em;
-    color: rgb(0, 0, 0);
-    font-weight: 800;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 2em;
+
+footer.main-footer a {
+    color: inherit
+}
+
+footer.main-footer p {
+    margin: 0;
+    font-size: .8em
+}
+
+@media (max-width:575px) {
+    footer.main-footer div[class*=col] {
+        text-align: center!important
+    }
+}
+
+.input-group-text {
+    color: #868e96;
+    background: #f8f9fa;
+    border-color: #dee2e6;
+    border-radius: 0
+}
+
+button, input[type=submit] {
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 300!important
+}
+
+input.input-material {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0
+}
+
+input.input-material:focus {
+    border-color: #796aee
+}
+
+input.input-material~label {
+    color: #aaa;
+    position: absolute;
+    top: 14px;
+    left: 0;
+    cursor: text;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    font-weight: 300
+}
+
+.form-group-material {
+    position: relative;
+    margin-bottom: 30px
+}
+
+.login-page {
+    position: relative
+}
+
+.login-page::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -1;
+    background-size: cover;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.login-page .container {
+    min-height: 100vh;
+    z-index: 999;
+    padding: 20px;
+    position: relative
+}
+
+.login-page .form-holder {
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 50px
+}
+
+.login-page .form-holder .form, .login-page .form-holder .info {
+    min-height: 70vh;
+    padding: 40px;
+    height: 100%
+}
+
+.login-page .form-holder div[class*=col-] {
+    padding: 0
+}
+
+.login-page .form-holder .info {
+    background: rgba(121, 106, 238, .9);
+    color: #fff
+}
+
+.login-page .form-holder .info h1 {
+    font-size: 2.5em;
+    font-weight: 600
+}
+
+.login-page .form-holder .info p {
+    font-weight: 300
+}
+
+.login-page .form-holder .form .form-group {
+    position: relative;
+    margin-bottom: 30px
+}
+
+.login-page .form-holder .form .content {
+    width: 100%
+}
+
+.login-page .form-holder .form form {
+    width: 100%;
+    max-width: 400px
+}
+
+.login-page .form-holder .form #login {
+    margin-bottom: 20px;
+    cursor: pointer
+}
+
+.login-page .form-holder .form a.signup {
+    font-size: .9em;
+    color: #85b4f2
+}
+
+@media (max-width:991px) {
+    .login-page .form, .login-page .info {
+        min-height: auto!important
+    }
+    .login-page .info {
+        padding-top: 100px!important;
+        padding-bottom: 100px!important
+    }
+}
+
+.btn {
+    font-weight: 400;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out
+}
+
+.btn:focus {
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 .2rem rgba(121, 106, 238, .25);
+    box-shadow: 0 0 0 .2rem rgba(121, 106, 238, .25)
+}
+
+.btn:disabled {
+    opacity: .65
+}
+
+.btn-primary {
+    color: color-yiq(#796aee);
+    background-color: #796aee;
+    border-color: #796aee
+}
+
+.btn-primary:hover {
+    color: color-yiq(#5a48ea);
+    background-color: #5a48ea;
+    border-color: #503ce9
+}
+
+.btn-primary:focus {
+    -webkit-box-shadow: 0 0 0 .2rem rgba(121, 106, 238, .5);
+    box-shadow: 0 0 0 .2rem rgba(121, 106, 238, .5)
+}
+
+.btn-primary:disabled {
+    color: color-yiq(#796aee);
+    background-color: #796aee;
+    border-color: #796aee
+}
+
+.btn-info {
+    color: color-yiq(#17a2b8);
+    background-color: #17a2b8;
+    border-color: #17a2b8
+}
+
+.btn-info:hover {
+    color: color-yiq(#138496);
+    background-color: #138496;
+    border-color: #117a8b
+}
+
+.btn-info:focus {
+    -webkit-box-shadow: 0 0 0 .2rem rgba(23, 162, 184, .5);
+    box-shadow: 0 0 0 .2rem rgba(23, 162, 184, .5)
+}
+
+.btn-info:disabled {
+    color: color-yiq(#17a2b8);
+    background-color: #17a2b8;
+    border-color: #17a2b8
+}
+
+.btn-lg {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem
+}
+
+.btn-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff
+}
+
+a {
+    color: #796aee;
+    text-decoration: none
+}
+
+a:focus, a:hover {
+    color: #3b25e6;
+    text-decoration: underline
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 1.1;
+    color: inherit
+}
+
+.h1, h1 {
+    font-size: 1.5rem
+}
+
+.h2, h2 {
+    font-size: 1.3rem
+}
+
+.h3, h3 {
+    font-size: 1.2rem
+}
+
+.h4, h4 {
+    font-size: 1.1rem
+}
+
+.h5, h5 {
+    font-size: 1rem
+}
+
+.h6, h6 {
+    font-size: .95rem
+}
+
+.text-primary {
+    color: #796aee!important
+}
+
+a.text-primary:focus, a.text-primary:hover {
+    color: #503ce9!important
+}
+
+.bg-primary {
+    background-color: #796aee!important
+}
+
+a.bg-primary:focus, a.bg-primary:hover {
+    background-color: #503ce9!important
+}
+
+.bg-info {
+    background-color: #17a2b8!important
+}
+
+a.bg-info:focus, a.bg-info:hover {
+    background-color: #117a8b!important
+}
+
+.text-primary {
+    color: #796aee!important
+}
+
+a.text-primary:focus, a.text-primary:hover {
+    color: #503ce9!important
+}
+
+.text-info {
+    color: #17a2b8!important
+}
+
+a.text-info:focus, a.text-info:hover {
+    color: #117a8b!important
 }
