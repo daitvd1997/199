@@ -4,6 +4,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { DashboardModel } from '../models/dashboardModel';
 import { environment } from "src/environments/environment";
+import { helpers } from 'chart.js';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -17,22 +19,24 @@ export class DashboardserviceService {
     headers: new HttpHeaders(
       {
         'Content-Type': 'application/json',
-        'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Njg5NzM2MTYsInVzZXJuYW1lIjoiTm1hbSJ9.XaQVoQvd_Mh932XPvtywXapRJhGQYTQ_ERsJcwxhQZQ'
+        Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Njk3NzgxODYsInVzZXJuYW1lIjoiYWRtaW4ifQ.kvFLldb5KvuHuOf1WK7bJFwPEKfwIBTYHZM18mkVFzw'
       }
     )
   };
 
-
   getAllHistory() {
     // console.log(localStorage.getItem("currentUser"));
-    return this.http.get<DashboardModel[]>(
-      environment.apiUrl + "/api/v1/employees"
+    return this.http.get<ResponseModel[]>(
+      environment.apiUrl + '/api/admin/getCompact',
+      this.httpOptions
     );
   }
 
-  searchHistory(keySearch, valuSearch){
-    return this.http.get<DashboardModel[]>(
-      environment.apiUrl + ""
+  searchHistory(search: string){
+    return this.http.post<DashboardModel[]>(
+      environment.apiUrl + '/api/admin/getCompact/' + search,
+      search,
+      this.httpOptions
     );
   }
 

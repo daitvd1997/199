@@ -3,6 +3,8 @@ import { Chart } from 'chart.js'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardserviceService } from 'src/app/services/dashboardservice.service';
 import { DashboardModel } from 'src/app/models/dashboardModel';
+import { ResponseModel } from 'src/app/models/responseModel';
+import { ResponseModelObject } from 'src/app/models/responseModelObject';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,26 +12,26 @@ import { DashboardModel } from 'src/app/models/dashboardModel';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-keySearch: any;
-valueSearch: any;
   constructor(private dashboardservice: DashboardserviceService) { }
 
-  listHistory: DashboardModel[];
-
+  listHistory: ResponseModelObject[];
+  listResponseHistory: DashboardModel[];
+  search: string;
   ngOnInit() {
     this.getAllHistory();
+    this.search = '';
   }
-
-  OnInput(keySearch: any) {
-    this.keySearch = keySearch.target.value;
-    }
 
   getAllHistory(): void {
-    this.dashboardservice.getAllHistory().subscribe(data => this.listHistory = data);
+    // tslint:disable-next-line: no-shadowed-variable
+    this.dashboardservice.getAllHistory().subscribe((res: any[]) => {
+      this.listResponseHistory = res.listModel;
+      console.log(res.listModel);
+    });
   }
 
-  searchFunction(): void{
-    this.dashboardservice.searchHistory(this.keySearch, this.valueSearch).subscribe(data => this.listHistory = data);
+  searchHistory(): void{
+    this.dashboardservice.searchHistory(this.search).subscribe(data => this.listResponseHistory = data);
   }
 
 }

@@ -16,15 +16,13 @@ const routes: Routes = [
   //     { path: '', component: DashboardComponent },
   //   ]
   // },
-  // { path: "", redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: "", redirectTo: 'dashboard', pathMatch: 'full' },
   // { path: "dashboard", redirectTo: 'dashboard', pathMatch: 'full' },
   { path: "login", component: LoginComponent },
   { path: "configPartner", component: ConfigPartnerComponent },
   { path: "statistic", component: StatisticComponent },
-  // { path: "home", redirectTo: 'dashboard/home' },
   { path: "dashboard", component: DashboardComponent },
-  // { path: "createPartner", redirectTo: 'dashboard/createPartner', pathMatch: 'full' },
-  // { path: "login", component: LoginComponent },
+  { path: "createPartner", component: CreatePartnerComponent },
   // { path: "createPartner", redirectTo: 'dashboard/createPartner' },
 ];
 
