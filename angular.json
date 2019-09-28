@@ -32,7 +32,7 @@
               "node_modules/jquery/dist/jquery.slim.min.js",
               "src/assets/js/charts-home.js",
               "src/assets/js/front.js",
-              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/chart.js/dist/Chart.js"
             ]
           },
           "configurations": {
