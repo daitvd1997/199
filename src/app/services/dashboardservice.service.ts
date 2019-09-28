@@ -30,6 +30,12 @@ export class DashboardserviceService {
     );
   }
 
+  searchHistory(keySearch, valuSearch){
+    return this.http.get<DashboardModel[]>(
+      environment.apiUrl + ""
+    );
+  }
+
 
 
 
