@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   listHistory: ResponseModelObject[];
   listResponseHistory: DashboardModel[];
   search: string;
+  
   ngOnInit() {
     this.getAllHistory();
     this.search = '';

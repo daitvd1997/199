@@ -29,11 +29,11 @@ export class ConfigPartnerComponent implements OnInit {
       });
   }
 
-  getAllPort(): void {
-    // tslint:disable-next-line: no-shadowed-variable
-    this.dashboardservice.getAllHistory().subscribe((res: any[]) => {
-      this.listResponseHistory = res.listModel;
-      console.log(res.listModel);
-    });
-  }
+  // getAllPort(): void {
+  //   // tslint:disable-next-line: no-shadowed-variable
+  //   this.dashboardservice.getAllHistory().subscribe((res: any[]) => {
+  //     this.listResponseHistory = res.listModel;
+  //     console.log(res.listModel);
+  //   });
+  // }
 }

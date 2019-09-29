@@ -1,6 +1,6 @@
+import * as tslib_1 from "tslib";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,35 +17,37 @@ import { CreatePartnerComponent } from './components/create-partner/create-partn
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { ConfigPartnerComponent } from './components/config-partner/config-partner.component';
 // import {ChartModule} from 'primeng/chart';
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    DashboardComponent,
-    CreatePartnerComponent,
-    StatisticComponent,
-    ConfigPartnerComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MaterialModule,
-    FormsModule,
-    ChartsModule,
-    ZoomModule,
-    // ChartModule,
-    AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'})
-  
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-  ],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+let AppModule = class AppModule {
+};
+AppModule = tslib_1.__decorate([
+    NgModule({
+        declarations: [
+            AppComponent,
+            LoginComponent,
+            DashboardComponent,
+            CreatePartnerComponent,
+            StatisticComponent,
+            ConfigPartnerComponent,
+        ],
+        imports: [
+            BrowserModule,
+            AppRoutingModule,
+            BrowserAnimationsModule,
+            BrowserModule,
+            AppRoutingModule,
+            HttpClientModule,
+            MaterialModule,
+            FormsModule,
+            ZoomModule,
+            // ChartModule,
+            AlertModule.forRoot({ maxMessages: 5, timeout: 5000, position: 'right' })
+        ],
+        providers: [
+            { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+            { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        ],
+        bootstrap: [AppComponent]
+    })
+], AppModule);
+export { AppModule };
+//# sourceMappingURL=app.module.js.map
