@@ -19,19 +19,15 @@
                         <div class="content">
                             <form method="post" class="form-validate">
                                 <div class="form-group">
-                                    <input id="login-username" type="text" [(ngModel)]="email"
-                                        [ngModelOptions]="{standalone: true}" name="loginUsername" required
-                                        data-msg="Please enter your username" class="input-material">
-                                    <label for="login-username" class="label-material">User Name</label>
+                                    <input id="login-username" placeholder="Tài Khoản" type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" name="loginUsername" required data-msg="Please enter your username" class="input-material">
+
                                 </div>
                                 <div class="form-group">
-                                    <input id="login-password" type="password" [(ngModel)]="password"
-                                        [ngModelOptions]="{standalone: true}" name="loginPassword" required
-                                        data-msg="Please enter your password" class="input-material">
-                                    <label for="login-password" class="label-material">Password</label>
-                                </div><a id="login" [routerLink]="['/createPartner']" class="btn btn-primary">Login</a>
+                                    <input id="login-password" placeholder="Mật Khẩu" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" name="loginPassword" required data-msg="Please enter your password" class="input-material">
+
+                                </div><a id="login" (click)="loginFuntion()" class="btn btn-primary">Login</a>
                                 <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-                            </form><a hclick)="loginFuntion()" class="signup">Signup</a>
+                            </form><a [routerLink]="['/resetPassword']" class="signup">Quên Mật Khẩu</a>
                         </div>
                     </div>
                 </div>
@@ -45,8 +41,7 @@
                     <p>Trùm Bán Thẻ &copy; 2019</p>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <p>Design by <a href="https://www.facebook.com/zLeooz"
-                            class="external">Leoo</a></p>
+                    <p>Design by <a href="https://www.facebook.com/zLeooz" class="external">Leoo</a></p>
                     <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
                 </div>
             </div>

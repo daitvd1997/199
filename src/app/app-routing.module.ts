@@ -4,6 +4,8 @@ import { LoginComponent } from "./components/login/login.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { CreatePartnerComponent } from "./components/create-partner/create-partner.component";
 import { AuthGuard } from './auth/auth.guard';
+import { StatisticComponent } from './components/statistic/statistic.component';
+import { ConfigPartnerComponent } from './components/config-partner/config-partner.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,7 @@ const routes: Routes = [
   { path: "createPartner", redirectTo: 'dashboard/createPartner', pathMatch: 'full' },
   // { path: "login", component: LoginComponent },
   { path: "dashboard", redirectTo: 'dashboard/dashboard' },
+
   // { path: "createPartner", redirectTo: 'dashboard/createPartner' },
   { path: "**", redirectTo: '' }
 ];

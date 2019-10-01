@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,8 @@ import { AlertModule } from 'ngx-alerts';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreatePartnerComponent } from './components/create-partner/create-partner.component';
+import { StatisticComponent } from './components/statistic/statistic.component';
+import { ConfigPartnerComponent } from './components/config-partner/config-partner.component';
 // import {ChartModule} from 'primeng/chart';
 
 @NgModule({
@@ -21,6 +24,8 @@ import { CreatePartnerComponent } from './components/create-partner/create-partn
     LoginComponent,
     DashboardComponent,
     CreatePartnerComponent,
+    StatisticComponent,
+    ConfigPartnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +36,7 @@ import { CreatePartnerComponent } from './components/create-partner/create-partn
     HttpClientModule,
     MaterialModule,
     FormsModule,
+    ChartsModule,
     ZoomModule,
     // ChartModule,
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'})

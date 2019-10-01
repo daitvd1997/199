@@ -12,7 +12,7 @@ import { AlertService } from 'ngx-alerts';
 export class CreatePartnerComponent implements OnInit {
   responseToken: ResponseModel;
   createPartnerModel = new CreatePartnerModel();
-  constructor(private createPartnerService: CreatePartnerService,private alertService: AlertService) {}
+  constructor(private createPartnerService: CreatePartnerService, private alertService: AlertService) { }
 
   ngOnInit() {
     this.getToken();
