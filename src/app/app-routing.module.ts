@@ -6,20 +6,20 @@ import { CreatePartnerComponent } from "./components/create-partner/create-partn
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  // {
-  //   path: "dashboard",
-  //   canActivate: [AuthGuard],
-  //   children: [      
-  //     { path: "createPartner", component: CreatePartnerComponent },
-  //     { path: '', component: DashboardComponent },
-  //   ]
-  // },
-  // { path: "", redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: "", redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: "dashboard",
+    canActivate: [AuthGuard],
+    children: [      
+      { path: "createPartner", component: CreatePartnerComponent },
+      { path: '', component: DashboardComponent },
+    ]
+  },
+  { path: "", redirectTo: 'dashboard', pathMatch: 'full' },
+  // { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: "dashboard", redirectTo: 'dashboard', pathMatch: 'full' },
   { path: "login", component: LoginComponent },
   { path: "home", redirectTo: 'dashboard/home' },
-  { path: "dashboard", component: DashboardComponent },
+  // { path: "dashboard", component: DashboardComponent },
   { path: "createPartner", redirectTo: 'dashboard/createPartner', pathMatch: 'full' },
   // { path: "login", component: LoginComponent },
   { path: "dashboard", redirectTo: 'dashboard/dashboard' },
