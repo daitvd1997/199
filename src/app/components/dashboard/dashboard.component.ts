@@ -22,18 +22,16 @@ export class DashboardComponent implements OnInit {
     this.getAllHistory();
     this.search = '';
   }
-}
 
-  getAllHistory(): void {
+  getAllHistory() {
     // tslint:disable-next-line: no-shadowed-variable
-    this.dashboardservice.getAllHistory().subscribe((res: any[]) => {
+    this.dashboardservice.getAllHistory().subscribe((res: any) => {
       this.listResponseHistory = res.listModel;
       console.log(res.listModel);
     });
   }
 
-  searchHistory(): void{
+  searchHistory(){
     this.dashboardservice.searchHistory(this.search).subscribe(data => this.listResponseHistory = data);
   }
-}
 }

@@ -1,0 +1,84 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="content">
+
+    <div class="container">
+        <div class="example-container mat-elevation-z8">
+            <mat-table [dataSource]="listData" matSort>
+
+                <!-- cài đặt các row mat-sort-header cho phép người dùng sort -->
+                <ng-container matColumnDef="ID">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="NAME">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>NAME</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="RATE">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>RATE</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.rate}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="PHONE">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>PHONE</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.phone}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="TOKEN">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>TOKEN</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.token}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="URL_CALL_BACK">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>URL_CALL_BACK</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.urlPostBack}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="TYPE">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>TYPE</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.type}}</mat-cell>
+                </ng-container>
+                <!-- Hàng hiện các nút icon hành động -->
+                <ng-container matColumnDef="ACTIONS">
+                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <!-- có thể custom các nút ở đây -->
+                        <button mat-icon-button color="red">
+                            <mat-icon>delete_outline</mat-icon>
+                            {{ row.type == 1 ? 'DEACTIVE' : 'ACTIVE' }}
+                        </button>
+                        <button mat-icon-button color="warn">
+                            <mat-icon>launch</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+                <!-- end hành động -->
+
+
+
+
+                <!-- cài đặt các header lấy từ biến displayedColumns -->
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                <!-- end cài đặt biến -->
+
+                <!-- Hàng hiện trạng thái đang loading nếu loading xong sẽ biến mất -->
+                <ng-container matColumnDef="loading">
+                    <mat-footer-cell *matFooterCellDef colspan="6">
+                        Loading data...
+                    </mat-footer-cell>
+                </ng-container>
+                <ng-container matColumnDef="noData">
+                    <mat-footer-cell *matFooterCellDef colspan="6">
+                        No data.
+                    </mat-footer-cell>
+                </ng-container>
+                <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+                <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}">
+                </mat-footer-row>
+                <!-- end loading -->
+            </mat-table>
+            <!-- hiện paging trang -->
+            <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageOption" showFirstLastButtons (page)="getServerData($event)">
+            </mat-paginator>
+            <!-- kết thúc page -->
+        </div>
+    </div>
+</div>

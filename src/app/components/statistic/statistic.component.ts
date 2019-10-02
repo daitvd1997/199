@@ -17,7 +17,7 @@ export class StatisticComponent implements OnInit {
   listRevenueDate: any[];
 
 
-  barchart = [];
+  barchart: any;
   ngOnInit() {
     this.getStatisticInMonth();
   }

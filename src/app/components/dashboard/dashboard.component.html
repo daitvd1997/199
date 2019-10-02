@@ -116,17 +116,6 @@
                     <div class="col-lg-12">
                         <form (ngSubmit)="searchHistory()">
                             <div class="form-group row">
-                                <!-- <div class="col-sm-5">
-                                    <label class="col-sm-12 form-control-label">Tuỳ Chọn Tìm Kiếm</label>
-                                    <div class="col-sm-12">
-                                        <select name="account" class="form-control mb-3">
-                                            <option value="0">Tất cả</option>
-                                            <option value="1">Phone</option>
-                                            <option value="2">Mã Thẻ</option>
-                                            <option value="3">Mã Giao Dịch</option>
-                                        </select>
-                                    </div>
-                                </div> -->
                                 <div class="col-sm-5">
                                     <div class="form-group">
                                         <label class="col-sm-12 form-control-label">Nhập Thông Tin Cần Tìm</label>
@@ -172,7 +161,6 @@
                                         <tbody>
                                             <tr *ngFor="let hist of listResponseHistory ">
                                                 <th scope="row">{{hist.name}}</th>
-                                                <td>{{hist.card}}</td>
                                                 <td>{{hist.amount}}</td>
                                                 <td>{{hist.phone}}</td>
                                                 <td>{{hist.tranid}}</td>
