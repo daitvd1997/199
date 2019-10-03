@@ -1,3 +1,4 @@
+import { MainlayoutComponent } from './mainlayout/mainlayout.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
@@ -9,7 +10,6 @@ import { JwtInterceptor } from './auth/jwt.interceptor';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
-import { ZoomModule } from 'angular-zoom';
 import { AlertModule } from 'ngx-alerts';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -30,6 +30,7 @@ import { EditPartnerComponent } from './components/partner/edit-partner/edit-par
     ConfigPartnerComponent,
     ListPartnerComponent,
     EditPartnerComponent,
+    MainlayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,6 @@ import { EditPartnerComponent } from './components/partner/edit-partner/edit-par
     MaterialModule,
     FormsModule,
     ChartsModule,
-    ZoomModule,
     // ChartModule,
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'})
   
