@@ -17,7 +17,6 @@ import { ConfigPartnerComponent } from './components/partner/config-partner/conf
 import { ListPartnerComponent } from './components/partner/list-partner/list-partner.component';
 import { CreatePartnerComponent } from './components/partner/create-partner/create-partner.component';
 import { EditPartnerComponent } from './components/partner/edit-partner/edit-partner.component';
-import { FixlayoutComponent } from './fixlayout/fixlayout.component';
 import { HeaderComponent } from './fixlayout/header/header.component';
 import { FooterComponent } from './fixlayout/footer/footer.component';
 // import {ChartModule} from 'primeng/chart';
@@ -32,7 +31,6 @@ import { FooterComponent } from './fixlayout/footer/footer.component';
     ConfigPartnerComponent,
     ListPartnerComponent,
     EditPartnerComponent,
-    FixlayoutComponent,
     HeaderComponent,
     FooterComponent
   ],

@@ -521,7 +521,9 @@ section.dashboard-counts .row {
   padding: 30px 15px;
   margin: 0;
 }
-
+.row {
+  margin: 0;
+}
 section.dashboard-counts div[class*="col-"] .item {
   border-right: 1px solid #eee;
   padding: 15px 0;
@@ -749,7 +751,7 @@ button, input[type="submit"] {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: 0.25rem;
+  border-radius: 0px !important;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -904,7 +906,9 @@ div.container {
   margin: auto;
   box-shadow: 0 0 #000;
 }
-
+.container {
+  padding: 0;
+}
 h2 {
   font-size: 1.5em;
   margin-bottom: 30px;
@@ -933,4 +937,12 @@ mat-footer-row mat-footer-cell {
 }
 .mat-sort-header-container {
   margin: auto;
+}
+
+a span {
+  font-size: 14px;
+}
+
+.col-config {
+  padding-left: 15px;
 }
