@@ -1,152 +1,175 @@
 <div class="page">
-    <!-- Main Navbar-->
-    <header class="header">
-        <nav class="navbar">
-            <!-- Search Box-->
-            <div class="search-box">
-                <button class="dismiss"><i class="icon-close"></i></button>
-                <form id="searchForm" action="#" role="search">
-                    <input type="search" class="form-control">
-                </form>
-            </div>
-            <div class="container-fluid">
-                <div class="navbar-holder d-flex align-items-center justify-content-between">
-                    <!-- Navbar Header-->
-                    <div class="navbar-header">
-                        <!-- Navbar Brand -->
-                        <a [routerLink]="['/dashboard']" class="navbar-brand d-none d-sm-inline-block">
-                            <div class="brand-text d-none d-lg-inline-block"><span>
-                                        </span><strong>Trùm Bán Thẻ</strong></div>
-                            <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div>
-                        </a>
-                        <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
-                    </div>
-                    <!-- Navbar Menu -->
-                    <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                        <!-- Search-->
-                        <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i
-                                            class="icon-search"></i></a>
-                        </li>
-                        <!-- Messages  
-                                    -->
-                        <li class="nav-item dropdown"><a [routerLink]="['/configPartner']" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language "><span>Chỉnh Sửa Partner</span></a>
-                        </li>
-                        <li class="nav-item dropdown"><a [routerLink]="['/statistic']" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language "><span>Thống Kê Doanh Thu</span></a>
-                        </li>
-                        <!-- Logout    -->
-                        <li class="nav-item">
-                            <a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="page-content d-flex align-items-stretch">
-        <div class="content-inner">
-            <!-- Page Header-->
-            <header class="page-header">
-                <div class="container-fluid">
-                    <h2 class="no-margin-bottom">Forms</h2>
-                </div>
-            </header>
-            <!-- Forms Section-->
-            <section class="forms">
-                <div class="container-fluid">
-                    <div class="row">
-                        <!-- Form Elements -->
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-close">
-                                    <div class="dropdown">
-                                        <button type="button" id="closeCard5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                        <div aria-labelledby="closeCard5" class="dropdown-menu dropdown-menu-right has-shadow">
-                                            <a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a>
-                                            <a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-header d-flex align-items-center">
-                                    <h3 class="h4">Thêm Đối Tác</h3>
-                                </div>
-                                <div class="card-body">
-                                    <form class="form-horizontal">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Tên Đại Lí</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="username" [(ngModel)]="createPartnerModel.name" required class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Số Điện Thoại</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="phone" [(ngModel)]="createPartnerModel.phone" required class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">API Key</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" [(ngModel)]="createPartnerModel.token" name="data" value="{{responseToken.data}}" disabled required class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">URL Post Back</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" [(ngModel)]="createPartnerModel.urlPostBack" name="urlPostBack" required class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Tên đăng nhập</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="user_login" [(ngModel)]="createPartnerModel.username" required class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Mật Khẩu</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" [(ngModel)]="createPartnerModel.password" name="password" required class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Xác Nhận Mật Khẩu</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="re-password" required class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-4 offset-sm-3">
-                                                <button type="submit" class="btn btn-secondary">Cancel</button>
-                                                <button type="submit" name="submit_memDL" (click)="createPartnerFuntion()" class="btn btn-info">Tạo Đối Tác</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Page Footer-->
-            <footer class="main-footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p>Your company &copy; 2017-2019</p>
-                        </div>
-                        <div class="col-sm-6 text-right">
-                            <p>Design by <a href="https://bootstrapious.com/p/admin-template" class="external">Bootstrapious</a></p>
-                            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-                        </div>
-                    </div>
-                </div>
-            </footer>
+  <div class="page-content d-flex align-items-stretch">
+    <div class="content-inner">
+      <!-- Page Header-->
+      <header class="page-header">
+        <div class="container-fluid">
+          <h2 class="no-margin-bottom">Forms</h2>
         </div>
+      </header>
+      <!-- Forms Section-->
+      <section class="forms">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Form Elements -->
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-close">
+                  <div class="dropdown">
+                    <button
+                      type="button"
+                      id="closeCard5"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      class="dropdown-toggle"
+                    >
+                      <i class="fa fa-ellipsis-v"></i>
+                    </button>
+                    <div
+                      aria-labelledby="closeCard5"
+                      class="dropdown-menu dropdown-menu-right has-shadow"
+                    >
+                      <a href="#" class="dropdown-item remove">
+                        <i class="fa fa-times"></i>Close</a
+                      >
+                      <a href="#" class="dropdown-item edit">
+                        <i class="fa fa-gear"></i>Edit</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="card-header d-flex align-items-center">
+                  <h3 class="h4">Thêm Đối Tác</h3>
+                </div>
+                <div class="card-body">
+                  <form class="form-horizontal">
+                    <div class="form-group row">
+                      <label class="col-sm-3 form-control-label"
+                        >Tên Đại Lí</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          name="username"
+                          [(ngModel)]="createPartnerModel.name"
+                          required
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 form-control-label"
+                        >Số Điện Thoại</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          name="phone"
+                          [(ngModel)]="createPartnerModel.phone"
+                          required
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 form-control-label">API Key</label>
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          [(ngModel)]="createPartnerModel.token"
+                          name="data"
+                          value="{{ responseToken.data }}"
+                          disabled
+                          required
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 form-control-label"
+                        >URL Post Back</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          [(ngModel)]="createPartnerModel.urlPostBack"
+                          name="urlPostBack"
+                          required
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 form-control-label"
+                        >Tên đăng nhập</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          name="user_login"
+                          [(ngModel)]="createPartnerModel.username"
+                          required
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 form-control-label"
+                        >Mật Khẩu</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          [(ngModel)]="createPartnerModel.password"
+                          name="password"
+                          required
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 form-control-label"
+                        >Xác Nhận Mật Khẩu</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          name="re-password"
+                          required
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="form-group row">
+                      <div class="col-sm-4 offset-sm-3">
+                        <button type="submit" class="btn btn-secondary">
+                          Cancel
+                        </button>
+                        <button
+                          type="submit"
+                          name="submit_memDL"
+                          (click)="createPartnerFuntion()"
+                          class="btn btn-info"
+                        >
+                          Tạo Đối Tác
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
+  </div>
 </div>

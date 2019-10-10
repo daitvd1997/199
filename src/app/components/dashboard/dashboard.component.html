@@ -1,53 +1,7 @@
 <body>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <div class="page">
-        <!-- Main Navbar-->
-        <header class="header">
-            <nav class="navbar">
-                <!-- Search Box-->
-                <div class="search-box">
-                    <button class="dismiss"><i class="icon-close"></i></button>
-                    <form id="searchForm" action="#" role="search">
-                        <input type="search" placeholder="What are you looking for..." class="form-control">
-                    </form>
-                </div>
-                <div class="container-fluid">
-                    <div class="navbar-holder d-flex align-items-center justify-content-between">
-                        <!-- Navbar Header-->
-                        <div class="navbar-header">
-                            <!-- Navbar Brand -->
-                            <a [routerLink]="['/dashboard']" class="navbar-brand d-none d-sm-inline-block">
-                                <div class="brand-text d-none d-lg-inline-block"><span>
-                                    </span><strong>Trùm Bán Thẻ</strong></div>
-                                <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div>
-                            </a>
-                            <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
-                        </div>
-                        <!-- Navbar Menu -->
-                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                            <!-- Search-->
-                            <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i
-                                        class="icon-search"></i></a>
-                            </li>
-                            <!-- Messages  
-                                -->
-                            <li class="nav-item dropdown"><a [routerLink]="['/configPartner']" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language"><span>Chỉnh Sửa
-                                        Partner</span></a>
-                            </li>
-                            <li class="nav-item dropdown"><a [routerLink]="['/statistic']" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language"><span>Thống Kê
-                                        Doanh Thu</span></a>
-                            </li>
-                            <!-- Logout    -->
-                            <li class="nav-item">
-                                <a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
         <div class="page-content d-flex align-items-stretch">
-
             <div class="content-inner">
                 <!-- Page Header-->
                 <header class="page-header">
@@ -116,7 +70,7 @@
                 </section>
                 <section class="dashboard">
                     <h2 class="text-center config-title-h1">Lịch Sử Gạch Thẻ</h2>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 container">
                         <form>
                             <div class="form-group row">
                                 <div class="col-sm-5">
@@ -190,10 +144,6 @@
                                         </mat-cell>
                                     </ng-container>
                                     <!-- end hành động -->
-
-
-
-
                                     <!-- cài đặt các header lấy từ biến displayedColumns -->
                                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                                     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -224,19 +174,6 @@
                         </div>
                     </div>
                 </section>
-                <footer class="main-footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <p>Trùm Bán Thẻ &copy; 2019</p>
-                            </div>
-                            <div class="col-sm-6 text-right">
-                                <p>Design by <a href="https://www.facebook.com/zLeooz" class="external">Leoo</a></p>
-                                <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </div>
         </div>
     </div>

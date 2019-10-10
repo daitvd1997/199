@@ -1,4 +1,3 @@
-import { MainlayoutComponent } from './mainlayout/mainlayout.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
@@ -18,6 +17,9 @@ import { ConfigPartnerComponent } from './components/config-partner/config-partn
 import { ListPartnerComponent } from './components/partner/list-partner/list-partner.component';
 import { CreatePartnerComponent } from './components/partner/create-partner/create-partner.component';
 import { EditPartnerComponent } from './components/partner/edit-partner/edit-partner.component';
+import { FixlayoutComponent } from './fixlayout/fixlayout.component';
+import { HeaderComponent } from './fixlayout/header/header.component';
+import { FooterComponent } from './fixlayout/footer/footer.component';
 // import {ChartModule} from 'primeng/chart';
 
 @NgModule({
@@ -30,7 +32,9 @@ import { EditPartnerComponent } from './components/partner/edit-partner/edit-par
     ConfigPartnerComponent,
     ListPartnerComponent,
     EditPartnerComponent,
-    MainlayoutComponent
+    FixlayoutComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
