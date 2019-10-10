@@ -4,7 +4,7 @@
       <!-- Page Header-->
       <header class="page-header">
         <div class="container-fluid">
-          <h2 class="no-margin-bottom">Forms</h2>
+          <h2 class="no-margin-bottom">Thêm Mới Cộng Tác Viên</h2>
         </div>
       </header>
       <!-- Forms Section-->
@@ -16,26 +16,15 @@
               <div class="card">
                 <div class="card-close">
                   <div class="dropdown">
-                    <button
-                      type="button"
-                      id="closeCard5"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                      class="dropdown-toggle"
-                    >
+                    <button type="button" id="closeCard5" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false" class="dropdown-toggle">
                       <i class="fa fa-ellipsis-v"></i>
                     </button>
-                    <div
-                      aria-labelledby="closeCard5"
-                      class="dropdown-menu dropdown-menu-right has-shadow"
-                    >
+                    <div aria-labelledby="closeCard5" class="dropdown-menu dropdown-menu-right has-shadow">
                       <a href="#" class="dropdown-item remove">
-                        <i class="fa fa-times"></i>Close</a
-                      >
+                        <i class="fa fa-times"></i>Close</a>
                       <a href="#" class="dropdown-item edit">
-                        <i class="fa fa-gear"></i>Edit</a
-                      >
+                        <i class="fa fa-gear"></i>Edit</a>
                     </div>
                   </div>
                 </div>
@@ -45,121 +34,67 @@
                 <div class="card-body">
                   <form class="form-horizontal">
                     <div class="form-group row">
-                      <label class="col-sm-3 form-control-label"
-                        >Tên Đại Lí</label
-                      >
+                      <label class="col-sm-3 form-control-label">Tên Đại Lí</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          name="username"
-                          [(ngModel)]="createPartnerModel.name"
-                          required
-                          class="form-control"
-                        />
+                        <input type="text" name="username" [(ngModel)]="createPartnerModel.name" required
+                          class="form-control" />
                       </div>
                     </div>
                     <div class="line"></div>
                     <div class="form-group row">
-                      <label class="col-sm-3 form-control-label"
-                        >Số Điện Thoại</label
-                      >
+                      <label class="col-sm-3 form-control-label">Số Điện Thoại</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          name="phone"
-                          [(ngModel)]="createPartnerModel.phone"
-                          required
-                          class="form-control"
-                        />
+                        <input type="text" name="phone" [(ngModel)]="createPartnerModel.phone" required
+                          class="form-control" />
                       </div>
                     </div>
                     <div class="line"></div>
                     <div class="form-group row">
                       <label class="col-sm-3 form-control-label">API Key</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          [(ngModel)]="createPartnerModel.token"
-                          name="data"
-                          value="{{ responseToken.data }}"
-                          disabled
-                          required
-                          class="form-control"
-                        />
+                        <input type="text" [(ngModel)]="createPartnerModel.token" name="data"
+                          value="{{ responseToken.data }}" disabled required class="form-control" />
                       </div>
                     </div>
                     <div class="line"></div>
                     <div class="form-group row">
-                      <label class="col-sm-3 form-control-label"
-                        >URL Post Back</label
-                      >
+                      <label class="col-sm-3 form-control-label">URL Post Back</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          [(ngModel)]="createPartnerModel.urlPostBack"
-                          name="urlPostBack"
-                          required
-                          class="form-control"
-                        />
+                        <input type="text" [(ngModel)]="createPartnerModel.urlPostBack" name="urlPostBack" required
+                          class="form-control" />
                       </div>
                     </div>
                     <div class="line"></div>
                     <div class="form-group row">
-                      <label class="col-sm-3 form-control-label"
-                        >Tên đăng nhập</label
-                      >
+                      <label class="col-sm-3 form-control-label">Tên đăng nhập</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          name="user_login"
-                          [(ngModel)]="createPartnerModel.username"
-                          required
-                          class="form-control"
-                        />
+                        <input type="text" name="user_login" [(ngModel)]="createPartnerModel.username" required
+                          class="form-control" />
                       </div>
                     </div>
                     <div class="line"></div>
                     <div class="form-group row">
-                      <label class="col-sm-3 form-control-label"
-                        >Mật Khẩu</label
-                      >
+                      <label class="col-sm-3 form-control-label">Mật Khẩu</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          [(ngModel)]="createPartnerModel.password"
-                          name="password"
-                          required
-                          class="form-control"
-                        />
+                        <input type="text" [(ngModel)]="createPartnerModel.password" name="password" required
+                          class="form-control" />
                       </div>
                     </div>
                     <div class="line"></div>
                     <div class="form-group row">
-                      <label class="col-sm-3 form-control-label"
-                        >Xác Nhận Mật Khẩu</label
-                      >
+                      <label class="col-sm-3 form-control-label">Xác Nhận Mật Khẩu</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          name="re-password"
-                          required
-                          class="form-control"
-                        />
+                        <input type="text" name="re-password" required class="form-control" />
                       </div>
                     </div>
                     <div class="line"></div>
                     <div class="form-group row">
                       <div class="col-sm-4 offset-sm-3">
-                        <button type="submit" class="btn btn-secondary">
-                          Cancel
-                        </button>
-                        <button
-                          type="submit"
-                          name="submit_memDL"
-                          (click)="createPartnerFuntion()"
-                          class="btn btn-info"
-                        >
+                        <button type="submit" name="submit_memDL" (click)="createPartnerFuntion()" class="btn btn-info btn-config">
                           Tạo Đối Tác
+                        </button>
+                        <button type="submit" class="btn btn-secondary btn-config">
+                          Cancel
                         </button>
                       </div>
                     </div>

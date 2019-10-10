@@ -6,7 +6,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { AuthGuard } from "./auth/auth.guard";
 import { StatisticComponent } from "./components/statistic/statistic.component";
-import { ConfigPartnerComponent } from "./components/config-partner/config-partner.component";
+import { ConfigPartnerComponent } from "./components/partner/config-partner/config-partner.component";
 import { CreatePartnerComponent } from "./components/partner/create-partner/create-partner.component";
 
 const routes: Routes = [
@@ -17,7 +17,10 @@ const routes: Routes = [
       { path: "createPartner", component: CreatePartnerComponent },
       { path: "", component: DashboardComponent },
       { path: "edit-partner/:id", component: EditPartnerComponent },
-      { path: "partners", component: ListPartnerComponent }
+      { path: "partners", component: ListPartnerComponent },
+      { path: "configPartner", component: ConfigPartnerComponent },
+      { path: "listPartner", component: ListPartnerComponent },
+      { path: "statistic", component: StatisticComponent }
     ]
   },
   { path: "", redirectTo: "dashboard", pathMatch: "full" },
@@ -32,6 +35,9 @@ const routes: Routes = [
   },
   // { path: "login", component: LoginComponent },
   { path: "dashboard", redirectTo: "dashboard/dashboard" },
+  { path: "configPartner", redirectTo: "dashboard/configPartner" },
+  { path: "listPartner", redirectTo: "dashboard/listPartner" },
+  { path: "statistic", redirectTo: "dashboard/statistic" },
   { path: "partners", redirectTo: "dashboard/partners" },
   { path: "edit-partner/:id", redirectTo: "dashboard/edit-partner/:id" },
   // { path: "createPartner", redirectTo: 'dashboard/createPartner' },

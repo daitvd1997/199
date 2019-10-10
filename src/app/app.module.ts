@@ -13,7 +13,7 @@ import { AlertModule } from 'ngx-alerts';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
-import { ConfigPartnerComponent } from './components/config-partner/config-partner.component';
+import { ConfigPartnerComponent } from './components/partner/config-partner/config-partner.component';
 import { ListPartnerComponent } from './components/partner/list-partner/list-partner.component';
 import { CreatePartnerComponent } from './components/partner/create-partner/create-partner.component';
 import { EditPartnerComponent } from './components/partner/edit-partner/edit-partner.component';
