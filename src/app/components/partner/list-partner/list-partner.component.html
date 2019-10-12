@@ -83,9 +83,20 @@
                             <!-- end loading -->
                         </mat-table>
                         <!-- hiện paging trang -->
-                        <mat-paginator class="grey lighten-5 w-100" [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageOption"
+                        <!-- <mat-paginator class="grey lighten-5 w-100" [length]="length" style-paginator
+                            showFirstLastButtons hidePageSize [pageSize]="pageSize" [pageSizeOptions]="pageOption"
                             showFirstLastButtons (page)="getServerData($event)">
-                        </mat-paginator>
+                        </mat-paginator> -->
+                        <div class="pagination grey lighten-5 w-100">
+                            <div class="pagination-container">
+                                <button mat-button (click)="page.previousPage()">
+                                    < </button> <button mat-button (click)="updateManualPage(1)">1
+                                </button>
+                                <button mat-button (click)="updateManualPage(2)">2</button>
+                                <button mat-button (click)="updateManualPage(3)">3</button>
+                                <button mat-button (click)="page.nextPage()">></button>
+                            </div>
+                        </div>
                         <!-- kết thúc page -->
                     </div>
                 </div>
