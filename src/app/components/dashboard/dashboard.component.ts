@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
   }
 
   loadTable() {
-    this.listData = [];
+    this.listData = null;
     this.requestGsmService.getAll(this.page, this.pageSize).subscribe(response => {
       console.log(response);
       if (response) {
