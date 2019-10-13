@@ -1,26 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { DashboardModel } from '../models/dashboardModel';
+import { HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { helpers } from 'chart.js';
 import { ResponseModel } from '../models/responseModel';
-import { StatisticModel } from '../models/StatisticModel';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StatisticService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private authenticationService: AuthenticationService) { }
 
   getAllHistory() {
-    // console.log(localStorage.getItem("currentUser"));
-    return this.http.get<StatisticModel>(
-      environment.apiUrl + '/api/admin/get-statist',
-    );
+    const currentUser = this.authenticationService.currentUserValue;
+    if (currentUser.role == '2') {
+      return this.http.get<ResponseModel[]>(environment.apiUrl + '/api/admin/get-statist');
+    } else {
+      return this.http.get<ResponseModel[]>(environment.apiUrl + '/api/user/get-statist');
+    }
   }
-
-
 }

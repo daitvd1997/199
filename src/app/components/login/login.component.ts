@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.email, this.password).subscribe((result: any) => {
       console.log(result);
       console.log(result.message);
-      if (!result.token || !(result.role === '2') ) {
+      if (!result.token ) {
         this.alertService.danger('Sai tài khoản mật khẩu');
         this.authenticationService.logout();
       } else {

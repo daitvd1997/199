@@ -6,42 +6,31 @@ import { DashboardModel } from '../models/dashboardModel';
 import { environment } from "src/environments/environment";
 import { helpers } from 'chart.js';
 import { ResponseModel } from '../models/responseModel';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardserviceService {
-  url = "";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
 
-  httpOptions = {
-    headers: new HttpHeaders(
-      {
-        'Content-Type': 'application/json',
-        Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Njk3NzgxODYsInVzZXJuYW1lIjoiYWRtaW4ifQ.kvFLldb5KvuHuOf1WK7bJFwPEKfwIBTYHZM18mkVFzw'
-      }
-    )
-  };
-
-  getAllHistory() {
+  getAllRequestGsm(page: number, pageSize: number) {
     // console.log(localStorage.getItem("currentUser"));
-    return this.http.get<ResponseModel[]>(
-      environment.apiUrl + '/api/admin/getCompact',
-      this.httpOptions
-    );
+    const currentUser = this.authenticationService.currentUserValue;
+    if (currentUser.role == '2') {
+      return this.http.get<ResponseModel[]>(environment.apiUrl + '/api/admin/list-request-gsm/' + page + '/' + pageSize);
+    } else {
+      return this.http.get<ResponseModel[]>(environment.apiUrl + '/api/user/list-request-gsm/' + page + '/' + pageSize);
+    }
   }
 
-  searchHistory(search: string){
-    return this.http.post<DashboardModel[]>(
-      environment.apiUrl + '/api/admin/getCompact/' + search,
-      search,
-      this.httpOptions
-    );
+  getCount() {
+    const currentUser = this.authenticationService.currentUserValue;
+    if (currentUser.role == '2') {
+      return this.http.get<ResponseModel[]>(environment.apiUrl + '/api/admin/list-request-gsm/count');
+    } else {
+      return this.http.get<ResponseModel[]>(environment.apiUrl + '/api/admin/list-request-gsm/count');
+    }
   }
-
-
-
-
-
 }

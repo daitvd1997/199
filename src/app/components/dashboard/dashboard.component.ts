@@ -17,15 +17,15 @@ import { MatTableDataSource, MatSort, MatPaginator, PageEvent } from '@angular/m
 })
 export class DashboardComponent implements OnInit {
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['ID', 'CARD', 'AMOUNT', 'PHONE', 'TRANSID', 'REALMONEY', 'STATUS', 'TIME_CREATED', 'TIME_UPDATED','ACTIONS'];
+  displayedColumns: string[] = ['ID', 'CARD', 'AMOUNT', 'PHONE', 'TRANSID', 'REALMONEY', 'STATUS', 'TIME_CREATED', 'TIME_UPDATED', 'ACTIONS'];
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   searchKey: string;
-
+  chogach = 0;
 
   pageOption = [5, 10, 25, 100];
   page = 0;
-  pageSize = 25;
+  pageSize = 100;
   length = 0;
   pageEvent: PageEvent;
   constructor(private requestGsmService: RequestGsmService, private alertService: AlertService, private router: Router) { }
@@ -38,11 +38,13 @@ export class DashboardComponent implements OnInit {
   }
 
   loadTable() {
-    this.listData = null;
+    this.listData = [];
     this.requestGsmService.getAll(this.page, this.pageSize).subscribe(response => {
-      console.log(response.data);
-      this.listData = new MatTableDataSource(response.data);
-      this.listData.sort = this.sort;
+      console.log(response);
+      if (response) {
+        this.listData = new MatTableDataSource(response.data);
+        this.listData.sort = this.sort;
+      }
     });
     this.requestGsmService.getCount().subscribe(length => {
       this.length = +length;

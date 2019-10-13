@@ -19,8 +19,7 @@
                                     <div class="icon bg-violet"><i class="icon-user"></i></div>
                                     <div class="title"><span>Chưa Gạch</span>
                                         <div class="progress">
-                                            <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="25"
-                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet">
+                                            <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet">
                                             </div>
                                         </div>
                                     </div>
@@ -33,8 +32,7 @@
                                     <div class="icon bg-green"><i class="icon-padnote"></i></div>
                                     <div class="title"><span>Đã Gạch</span>
                                         <div class="progress">
-                                            <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="70"
-                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green">
+                                            <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green">
                                             </div>
                                         </div>
                                     </div>
@@ -47,8 +45,7 @@
                                     <div class="icon bg-orange"><i class="icon-bill"></i></div>
                                     <div class="title"><span>Đang Gạch</span>
                                         <div class="progress">
-                                            <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="40"
-                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange">
+                                            <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange">
                                             </div>
                                         </div>
                                     </div>
@@ -61,8 +58,7 @@
                                     <div class="icon bg-red"><i class="icon-check"></i></div>
                                     <div class="title"><span>Gạch Lỗi</span>
                                         <div class="progress">
-                                            <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="50"
-                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red">
+                                            <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red">
                                             </div>
                                         </div>
                                     </div>
@@ -74,7 +70,7 @@
                 </section>
                 <section class="dashboard">
                     <h2 class="text-center config-title-h1">Lịch Sử Gạch Thẻ</h2>
-                    <div class="col-lg-12 container">
+                    <div class="container-fluid">
                         <form>
                             <div class="form-group row">
                                 <div class="col-sm-10 col-config">
@@ -91,7 +87,7 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="container">
+                        <div class="container-fluid">
                             <div class="example-container mat-elevation-z8">
                                 <mat-table [dataSource]="listData" matSort>
 
@@ -123,17 +119,18 @@
                                     <ng-container matColumnDef="STATUS">
                                         <mat-header-cell *matHeaderCellDef mat-sort-header>STATUS
                                         </mat-header-cell>
-                                        <mat-cell *matCellDef="let element">{{element.status}}</mat-cell>
+                                        <mat-cell *matCellDef="let element" [ngClass]="{'background-color : red': true}">{{element.status == 0 ? 'Đang đợi' : element.status == 1 ? 'Đang nạp' : element.status == 2 ? 'Thành công' : element.status == 3 ? 'Thẻ Lỗi' : element.status == 4 ? 'Lỗi số điện thoại' : element.status == 5 ? 'Chưa
+                                            xác định' : 'Không xác định' }}</mat-cell>
                                     </ng-container>
                                     <ng-container matColumnDef="TIME_CREATED">
                                         <mat-header-cell *matHeaderCellDef mat-sort-header>TIME_CREATED
                                         </mat-header-cell>
-                                        <mat-cell *matCellDef="let element">{{element.timeCreated}}</mat-cell>
+                                        <mat-cell *matCellDef="let element">{{element.timeCreated | date:'hh:mm:ss - dd/MM/yyyy'}}</mat-cell>
                                     </ng-container>
                                     <ng-container matColumnDef="TIME_UPDATED">
                                         <mat-header-cell *matHeaderCellDef mat-sort-header>TIME_UPDATED
                                         </mat-header-cell>
-                                        <mat-cell *matCellDef="let element">{{element.timeCreated}}</mat-cell>
+                                        <mat-cell *matCellDef="let element">{{element.timeUpdated | date:'hh:mm:ss - dd/MM/yyyy'}}</mat-cell>
                                     </ng-container>
                                     <!-- Hàng hiện các nút icon hành động -->
                                     <ng-container matColumnDef="ACTIONS">
@@ -141,12 +138,12 @@
                                         <mat-cell *matCellDef="let row">
                                             <!-- có thể custom các nút ở đây -->
                                             <button mat-icon-button color="red">
-                                                <mat-icon>delete_outline</mat-icon>
-                                                {{ row.type == 1 ? 'DEACTIVE' : 'ACTIVE' }}
-                                            </button>
-                                            <button mat-icon-button color="warn">
                                                 <mat-icon>launch</mat-icon>
+                                                Callback
                                             </button>
+                                            <!-- <button mat-icon-button color="warn">
+                                                <mat-icon>launch</mat-icon>
+                                            </button> -->
                                         </mat-cell>
                                     </ng-container>
                                     <!-- end hành động -->
@@ -168,14 +165,12 @@
                                     </ng-container>
                                     <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}">
                                     </mat-footer-row>
-                                    <mat-footer-row *matFooterRowDef="['noData']"
-                                        [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}">
+                                    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}">
                                     </mat-footer-row>
                                     <!-- end loading -->
                                 </mat-table>
                                 <!-- hiện paging trang -->
-                                <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageOption"
-                                    showFirstLastButtons (page)="getServerData($event)">
+                                <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageOption" showFirstLastButtons (page)="getServerData($event)">
                                 </mat-paginator>
                                 <!-- kết thúc page -->
                             </div>

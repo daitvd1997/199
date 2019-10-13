@@ -48,12 +48,9 @@
                                 <mat-header-cell *matHeaderCellDef></mat-header-cell>
                                 <mat-cell *matCellDef="let row">
                                     <!-- có thể custom các nút ở đây -->
-                                    <button mat-icon-button color="red">
-                                        <mat-icon>delete_outline</mat-icon>
-                                        {{ row.type == 1 ? 'DEACTIVE' : 'ACTIVE' }}
-                                    </button>
                                     <button mat-icon-button color="warn">
                                         <mat-icon>launch</mat-icon>
+                                        <a [routerLink]="['/edit-partner/'+row.id]" >aaaaaaaa</a>
                                     </button>
                                 </mat-cell>
                             </ng-container>
@@ -77,14 +74,12 @@
                             </ng-container>
                             <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}">
                             </mat-footer-row>
-                            <mat-footer-row *matFooterRowDef="['noData']"
-                                [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}">
+                            <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}">
                             </mat-footer-row>
                             <!-- end loading -->
                         </mat-table>
                         <!-- hiện paging trang -->
-                        <mat-paginator class="grey lighten-5 w-100" [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageOption"
-                            showFirstLastButtons (page)="getServerData($event)">
+                        <mat-paginator class="grey lighten-5 w-100" [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageOption" showFirstLastButtons (page)="getServerData($event)">
                         </mat-paginator>
                         <!-- kết thúc page -->
                     </div>
