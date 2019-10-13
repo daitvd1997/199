@@ -28,7 +28,8 @@ export class StatisticComponent implements OnInit {
     this.listRevenueGain = [];
     // tslint:disable-next-line: no-shadowed-variable
     this.statisticService.getAllHistory().subscribe((res) => {
-      this.listRevenue = res.data.reverse();
+      this.listRevenue = res.data;
+      this.listRevenue = this.listRevenue.reverse();
       this.listRevenue.forEach(element => {
         this.listRevenueGain.push(element.gain);
         this.listRevenueDate.push(element.dateGain);

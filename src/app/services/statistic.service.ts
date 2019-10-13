@@ -14,9 +14,9 @@ export class StatisticService {
   getAllHistory() {
     const currentUser = this.authenticationService.currentUserValue;
     if (currentUser.role == '2') {
-      return this.http.get<ResponseModel[]>(environment.apiUrl + '/api/admin/get-statist');
+      return this.http.get<ResponseModel>(environment.apiUrl + '/api/admin/get-statist');
     } else {
-      return this.http.get<ResponseModel[]>(environment.apiUrl + '/api/user/get-statist');
+      return this.http.get<ResponseModel>(environment.apiUrl + '/api/user/get-statist');
     }
   }
 }
