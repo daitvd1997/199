@@ -33,6 +33,7 @@ export class CreatePartnerComponent implements OnInit {
         console.log(result.message);
         this.alertService.success(result.message);
         this.createPartnerModel = new CreatePartnerModel();
+        this.getToken();
       });
   }
 }

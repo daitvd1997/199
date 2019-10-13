@@ -15,7 +15,7 @@
                     <!-- Navbar Brand -->
                     <a [routerLink]="['/dashboard']" class="navbar-brand d-none d-sm-inline-block">
                         <div class="brand-text d-none d-lg-inline-block">
-                            <span> </span><strong>Trùm Bán Thẻ</strong>
+                            <span> </span><strong>Nạp hộ 199</strong>
                         </div>
                         <div class="brand-text d-none d-sm-inline-block d-lg-none">
                             <strong>BD</strong>
@@ -27,12 +27,12 @@
                 <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                     <!-- Search-->
                     <li class="nav-item dropdown" *ngIf="currentUser.role === '2'">
-                        <a [routerLink]="['/listPartner']" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language"><span>Danh Sách Partner</span></a>
+                        <a [routerLink]="['/listPartner']" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language"><span>Danh Sách đối tác</span></a>
                     </li>
                     <!-- Messages  
                                 -->
                     <li class="nav-item dropdown" *ngIf="currentUser.role === '2'">
-                        <a [routerLink]="['/configPartner']" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language"><span>Chỉnh Sửa Partner</span></a>
+                        <a [routerLink]="['/createPartner']" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language"><span>Thêm mới đối tác</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a [routerLink]="['/statistic']" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language"><span>Thống Kê Doanh Thu</span></a>
