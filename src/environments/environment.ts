@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // apiUrl : 'http://localhost:8080'
-  apiUrl : 'http://192.168.1.3:8080'
+  // apiUrl : 'https://localhost:8080'
+  apiUrl : 'http://34.87.123.225:8080'
 };
 
 /*
