@@ -1,8 +1,6 @@
 import { PartnerService } from '../../../services/partner.service';
-import { Component, OnInit, ViewChild, Directive, ElementRef, ViewContainerRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, Directive} from '@angular/core';
 import { PageEvent, MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { AlertService } from 'ngx-alerts';
-import { Router } from '@angular/router';
 @Component({
 	selector: 'app-list-partner',
 	templateUrl: './list-partner.component.html',
