@@ -119,8 +119,8 @@
                                     <ng-container matColumnDef="STATUS">
                                         <mat-header-cell *matHeaderCellDef mat-sort-header>STATUS
                                         </mat-header-cell>
-                                        <mat-cell *matCellDef="let element" [ngClass]="{'background-color : red': true}">{{element.status == 0 ? 'Đang đợi' : element.status == 1 ? 'Đang nạp' : element.status == 2 ? 'Thành công' : element.status == 3 ? 'Thẻ Lỗi' : element.status == 4 ? 'Lỗi số điện thoại' : element.status == 5 ? 'Chưa
-                                            xác định' : 'Không xác định' }}</mat-cell>
+                                        <mat-cell *matCellDef="let element" [ngClass]="{'background-color : red': true}">{{element.status == 0 ? 'Đang đợi' : element.status == 1 ? 'Đang nạp' : element.status == 2 ? 'Thành công' : element.status == 3 ? 'Thẻ Lỗi' : element.status == 4 ? 'Lỗi số điện thoại' : element.status == 5 ? 'Không
+                                            nợ cước' : 'Không xác định' }}</mat-cell>
                                     </ng-container>
                                     <ng-container matColumnDef="TIME_CREATED">
                                         <mat-header-cell *matHeaderCellDef mat-sort-header>TIME_CREATED

@@ -1,13 +1,10 @@
 import { PartnerService } from '../../../services/partner.service';
-import { Component, OnInit, ViewChild, Directive} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { PageEvent, MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 @Component({
 	selector: 'app-list-partner',
 	templateUrl: './list-partner.component.html',
 	styleUrls: ['./list-partner.component.css'],
-})
-@Directive({
-  selector: '[style-paginator]'
 })
 export class ListPartnerComponent implements OnInit {
 	listData: MatTableDataSource<any>;
