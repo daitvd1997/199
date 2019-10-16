@@ -10,7 +10,7 @@ import { AlertService } from 'ngx-alerts';
   styleUrls: ["./create-partner.component.css"]
 })
 export class CreatePartnerComponent implements OnInit {
-  responseToken: ResponseModel;
+  responseToken= new ResponseModel();
   createPartnerModel = new CreatePartnerModel();
   constructor(private createPartnerService: CreatePartnerService, private alertService: AlertService) { }
 

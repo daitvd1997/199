@@ -8,14 +8,16 @@ import { AuthGuard } from "./auth/auth.guard";
 import { StatisticComponent } from "./components/statistic/statistic.component";
 import { ConfigPartnerComponent } from "./components/partner/config-partner/config-partner.component";
 import { CreatePartnerComponent } from "./components/partner/create-partner/create-partner.component";
+import { ListRequestComponent } from './components/list-request/list-request.component';
 
 const routes: Routes = [
   {
     path: "dashboard",
+    component: DashboardComponent,
     canActivate: [AuthGuard],
     children: [
       { path: "createPartner", component: CreatePartnerComponent },
-      { path: "", component: DashboardComponent },
+      { path: "", component: ListRequestComponent },
       { path: "edit-partner/:id", component: EditPartnerComponent },
       { path: "partners", component: ListPartnerComponent },
       { path: "configPartner", component: ConfigPartnerComponent },

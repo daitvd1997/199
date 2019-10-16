@@ -11,8 +11,7 @@ export class HeaderComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
-    this.currentUser = this.authenticationService.currentUserValue;
-    console.log(this.currentUser);
+    this.currentUser = this.authenticationService.currentUserValue;    
   }
 
 }

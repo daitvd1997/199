@@ -17,4 +17,8 @@ export class PartnerService {
   getCount() {
     return this.http.get<number>(environment.apiUrl + '/api/admin/partners/count');
   }
+
+  getPartnerOption() {
+    return this.http.get<ResponseModel>(environment.apiUrl + '/api/admin/partnerModel');
+  }
 }

@@ -19,6 +19,7 @@ import { CreatePartnerComponent } from './components/partner/create-partner/crea
 import { EditPartnerComponent } from './components/partner/edit-partner/edit-partner.component';
 import { HeaderComponent } from './fixlayout/header/header.component';
 import { FooterComponent } from './fixlayout/footer/footer.component';
+import { ListRequestComponent } from './components/list-request/list-request.component';
 // import {ChartModule} from 'primeng/chart';
 
 @NgModule({
@@ -32,7 +33,8 @@ import { FooterComponent } from './fixlayout/footer/footer.component';
     ListPartnerComponent,
     EditPartnerComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ListRequestComponent
   ],
   imports: [
     BrowserModule,
