@@ -973,10 +973,6 @@ mat-footer-row mat-footer-cell {
 .mat-icon-button {
 	margin-right: auto;
 }
-.mat-sort-header-container {
-	margin: auto;
-}
-
 a span {
 	font-size: 14px;
 }
@@ -993,8 +989,4 @@ a span {
 	text-align: center;
 	margin: auto;
 	width: 36%;
-}
-
-mat-header-cell {
-  padding: 0px 5px 0px 10px;
 }
