@@ -19,4 +19,11 @@ export class StatisticService {
       return this.http.get<ResponseModel>(environment.apiUrl + '/api/user/get-statist');
     }
   }
+
+  filterPartner(partnerId:string) {
+    const currentUser = this.authenticationService.currentUserValue;
+    if (currentUser.role == '2') {
+      return this.http.get<ResponseModel>(environment.apiUrl + '/api/admin/get-statist/'+partnerId);
+    }
+  }
 }

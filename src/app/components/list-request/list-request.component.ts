@@ -14,7 +14,7 @@ import { PartnerModelOption } from 'src/app/models/partnerModelOption';
 })
 export class ListRequestComponent implements OnInit {
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['ID', 'CARD', 'AMOUNT', 'PHONE', 'TRANSID', 'REALMONEY', 'STATUS', 'TIME_CREATED', 'TIME_UPDATED', 'ACTIONS'];
+  displayedColumns: string[] = ['ID', 'CARD', 'SERI', 'TYPE', 'AMOUNT', 'PHONE', 'TRANSID', 'REALMONEY', 'STATUS', 'TIME_CREATED', 'TIME_UPDATED', 'ACTIONS'];
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   searchKey: string;
@@ -63,5 +63,27 @@ export class ListRequestComponent implements OnInit {
     this.pageSize = event.pageSize;
     this.page = event.pageIndex;
     this.loadTable();
+  }
+  reCall(id:number) {
+    this.requestGsmService.recall(id).subscribe(response => {
+      this.alertService.info('Đã call lại: '+response.message);
+    });
+    setTimeout(()=>{
+      this.loadTable();
+    },2000);    
+  }
+
+  search() {
+    console.log('aaaa');
+    this.listData = null;
+    this.requestGsmService.search(this.searchKey).subscribe(response => {
+      console.log(response);
+      if (response) {
+        this.listData = new MatTableDataSource(response.data);
+        this.listData.sort = this.sort;
+        this.length =  5;
+      }
+    });
+    
   }
 }

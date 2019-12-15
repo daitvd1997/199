@@ -27,4 +27,16 @@ export class RequestGsmService {
       return this.http.get<ResponseModel>(environment.apiUrl + '/api/admin/list-request-gsm/count');
     }
   }
+  recall(id:number) {
+    return this.http.get<ResponseModel>(environment.apiUrl+'/api/user/pull-199/'+id);
+  }
+
+  search(searchKey:string) {
+    const currentUser = this.authenticationService.currentUserValue;
+    if (currentUser.role != '2') {
+      return this.http.get<ResponseModel>(environment.apiUrl + '/api/user/search-request-gsm/' + searchKey);
+    } else {
+      return this.http.get<ResponseModel>(environment.apiUrl + '/api/admin/search-request-gsm/' + searchKey);
+    }
+  }
 }

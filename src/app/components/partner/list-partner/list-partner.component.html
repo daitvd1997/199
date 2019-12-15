@@ -10,7 +10,7 @@
                 </div>
             </header>
             <section class="dashboard">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="example-container mat-elevation-z8">
                         <mat-table [dataSource]="listData" matSort>
 
@@ -35,22 +35,17 @@
                                 <mat-header-cell *matHeaderCellDef mat-sort-header>TOKEN</mat-header-cell>
                                 <mat-cell *matCellDef="let element">{{element.token}}</mat-cell>
                             </ng-container>
-                            <ng-container matColumnDef="URL_CALL_BACK">
-                                <mat-header-cell *matHeaderCellDef mat-sort-header>URL_CALL_BACK</mat-header-cell>
-                                <mat-cell *matCellDef="let element">{{element.urlPostBack}}</mat-cell>
-                            </ng-container>
                             <ng-container matColumnDef="TYPE">
                                 <mat-header-cell *matHeaderCellDef mat-sort-header>TYPE</mat-header-cell>
                                 <mat-cell *matCellDef="let element">{{element.type}}</mat-cell>
                             </ng-container>
                             <!-- Hàng hiện các nút icon hành động -->
                             <ng-container matColumnDef="ACTIONS">
-                                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                                <mat-header-cell *matHeaderCellDef>DETAIL</mat-header-cell>
                                 <mat-cell *matCellDef="let row">
                                     <!-- có thể custom các nút ở đây -->
                                     <button mat-icon-button color="warn">
-                                        <mat-icon>launch</mat-icon>
-                                        <a [routerLink]="['/edit-partner/'+row.id]" >aaaaaaaa</a>
+                                        <a [routerLink]="['/edit-partner/'+row.id]" >Chi tiết</a>
                                     </button>
                                 </mat-cell>
                             </ng-container>

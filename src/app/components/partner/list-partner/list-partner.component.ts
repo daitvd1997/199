@@ -8,7 +8,7 @@ import { PageEvent, MatTableDataSource, MatPaginator, MatSort } from '@angular/m
 })
 export class ListPartnerComponent implements OnInit {
 	listData: MatTableDataSource<any>;
-	displayedColumns: string[] = ['ID', 'NAME', 'RATE', 'PHONE', 'TOKEN', 'URL_CALL_BACK', 'TYPE', 'ACTIONS'];
+	displayedColumns: string[] = ['ID', 'NAME', 'RATE', 'PHONE', 'TOKEN', 'TYPE', 'ACTIONS'];
 	@ViewChild(MatSort, { static: false })
 	sort: MatSort;
 	@ViewChild(MatPaginator, { static: false })

@@ -31,11 +31,17 @@
                                     <div class="text"><small>Doanh Thu Trung Bình 1
                                             Ngày</small><br><small>12123123123$</small></div>
                                 </div>
+                                <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                    <select (change)="filterPartner()" class="form-control" [(ngModel)]="selectedValue" name="theSelect">
+                                        <option value='-1' selected>All</option>
+                                        <option  *ngFor="let c of listPartnerModelOption" [value]="c.id"
+                                            ng-selected="c.name == selectedValue.name"><button>{{c.name}}</button></option>
+                                    </select>
+                                </div>
                             </div>
                             <!-- Line Chart            -->
                             <div class="chart col-lg-6 col-12">
-                                <div
-                                    class="line-chart bg-white d-flex align-items-center justify-content-center has-shadow">
+                                <div class="line-chart bg-white d-flex align-items-center justify-content-center has-shadow">
                                     <canvas id="lineChart"></canvas>
                                 </div>
                             </div>

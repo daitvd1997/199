@@ -10,7 +10,7 @@
             </header>
             <!-- Dashboard Counts Section-->
             <section class="dashboard-counts no-padding-bottom">
-                <div class="container-fluid container">
+                <div class="container-fluid">
                     <div class="row bg-white has-shadow">
                         <!-- Item -->
                         <div class="col-xl-3 col-sm-6">
@@ -71,25 +71,42 @@
                 <h2 class="text-center config-title-h1">Lịch Sử Gạch Thẻ</h2>
                 <div class="container-fluid">
                     <form>
-                        <div class="form-group row">
-                            <div class="col-sm-10 col-config">
-                                <div class="form-group">
-                                    <label class="col-sm-12 form-control-label">Nhập Thông Tin Cần Tìm</label>
-                                    <div class="col-sm-12 col-config">
-                                        <input type="text" name="keySearch" class="form-control">
+                        <div class="row">
+                            <div class="col-sm-7 col-config">
+                                <label class="col-sm-12 form-control-label">Nhập Thông Tin Cần Tìm</label>
+                                <div class="col-sm-12 col-config">
+                                    <input type="text" name="keySearch" class="form-control" [(ngModel)]="searchKey">
+                                </div>
+                            </div>
+                            <div class="col-sm-2 text-center col-config">
+                                <div class="row">
+                                    <label class="col-sm-12 form-control-label">&nbsp;</label>
+                                    <div class="col-sm-12 col-config" *ngIf="currentUser.role === '2'">
+                                        <select class="form-control" [(ngModel)]="selectedValue" name="theSelect">
+                                            <option value='-1' selected>All</option>
+                                            <option *ngFor="let c of listPartnerModelOption" [value]="c.id"
+                                                ng-selected="c.name == selectedValue.name">{{c.name}}</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-2 text-center col-config">
-                                <div class="form-group row">
-                                    <div class="col-sm-6" *ngIf="currentUser.role === '2'">
+                                <div class="row">
+                                    <label class="col-sm-12 form-control-label">&nbsp;</label>
+                                    <div class="col-sm-12 col-config">
                                         <select class="form-control" [(ngModel)]="selectedValue" name="theSelect">
-                                                <option value='-1' selected>All</option>
-                                                    <option *ngFor="let c of listPartnerModelOption" [value]="c.id" ng-selected="c.name == selectedValue.name">{{c.name}}</option>
-                                              </select>
+                                            <option value='-1' selected>All</option>
+                                            <option *ngFor="let c of listPartnerModelOption" [value]="c.id"
+                                                ng-selected="c.name == selectedValue.name">{{c.name}}</option>
+                                        </select>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <button type="submit" class="btn btn-primary">Tìm Kiếm</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-1 text-center col-config">
+                                <div class="row">
+                                    <label class="col-sm-12 form-control-label">&nbsp;</label>
+                                    <div class="col-sm-12 col-config" (click)="search()">
+                                        <button class="btn btn-primary">Tìm Kiếm</button>
                                     </div>
                                 </div>
                             </div>
@@ -98,57 +115,66 @@
                     <div class="container-fluid">
                         <div class="example-container mat-elevation-z8">
                             <mat-table [dataSource]="listData" matSort>
-
                                 <!-- cài đặt các row mat-sort-header cho phép người dùng sort -->
                                 <ng-container matColumnDef="ID">
                                     <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
                                     <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
                                 </ng-container>
                                 <ng-container matColumnDef="CARD" sticky>
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>CARD</mat-header-cell>
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Mã thẻ</mat-header-cell>
                                     <mat-cell *matCellDef="let element">{{element.card}}</mat-cell>
                                 </ng-container>
+                                <ng-container matColumnDef="SERI" sticky>
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Seri</mat-header-cell>
+                                    <mat-cell *matCellDef="let element">{{element.seri}}</mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="TYPE" sticky>
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Kiểu nạp</mat-header-cell>
+                                    <mat-cell *matCellDef="let element">{{element.type == 0 ? '199': '136'}}</mat-cell>
+                                </ng-container>
                                 <ng-container matColumnDef="AMOUNT">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>AMOUNT</mat-header-cell>
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Số tiền</mat-header-cell>
                                     <mat-cell *matCellDef="let element">{{element.amount}}</mat-cell>
                                 </ng-container>
                                 <ng-container matColumnDef="PHONE">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>PHONE</mat-header-cell>
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Số điện thoại</mat-header-cell>
                                     <mat-cell *matCellDef="let element">{{element.phone}}</mat-cell>
                                 </ng-container>
                                 <ng-container matColumnDef="TRANSID">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>TRANSID</mat-header-cell>
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Mã đối chiếu</mat-header-cell>
                                     <mat-cell *matCellDef="let element">{{element.transid}}</mat-cell>
                                 </ng-container>
                                 <ng-container matColumnDef="REALMONEY">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>REALMONEY</mat-header-cell>
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Nạp được</mat-header-cell>
                                     <mat-cell *matCellDef="let element">{{element.realMoney}}</mat-cell>
                                 </ng-container>
                                 <ng-container matColumnDef="STATUS">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>STATUS
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Trạng thái
                                     </mat-header-cell>
                                     <mat-cell *matCellDef="let element" [ngClass]="{'background-color : red': true}">{{element.status == 0 ? 'Đang đợi' : element.status == 1 ? 'Đang nạp' : element.status == 2 ? 'Thành công' : element.status == 3 ? 'Thẻ Lỗi' : element.status == 4 ? 'Lỗi số điện thoại' : element.status == 5 ? 'Không
                                         nợ cước' : 'Không xác định' }}</mat-cell>
                                 </ng-container>
                                 <ng-container matColumnDef="TIME_CREATED">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>TIME_CREATED
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Thời gian tạo
                                     </mat-header-cell>
-                                    <mat-cell *matCellDef="let element">{{element.timeCreated | date:'hh:mm:ss - dd/MM/yyyy'}}</mat-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        {{element.timeCreated | date:'hh:mm:ss - dd/MM/yyyy'}}</mat-cell>
                                 </ng-container>
                                 <ng-container matColumnDef="TIME_UPDATED">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>TIME_UPDATED
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Thời gian hoàn thành
                                     </mat-header-cell>
-                                    <mat-cell *matCellDef="let element">{{element.timeUpdated | date:'hh:mm:ss - dd/MM/yyyy'}}</mat-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        {{element.timeUpdated | date:'hh:mm:ss - dd/MM/yyyy'}}</mat-cell>
                                 </ng-container>
                                 <!-- Hàng hiện các nút icon hành động -->
                                 <ng-container matColumnDef="ACTIONS">
-                                    <mat-header-cell *matHeaderCellDef>ACTIONS</mat-header-cell>
+                                    <mat-header-cell *matHeaderCellDef>Lệnh</mat-header-cell>
                                     <mat-cell *matCellDef="let row">
                                         <!-- có thể custom các nút ở đây -->
-                                        <button mat-icon-button color="red">
-                                                <mat-icon>launch</mat-icon>
-                                                Callback
-                                            </button>
+                                        <button mat-icon-button color="red" (click)="reCall(row.id)">
+                                            <mat-icon>launch</mat-icon>
+                                            Callback
+                                        </button>
                                         <!-- <button mat-icon-button color="warn">
                                                 <mat-icon>launch</mat-icon>
                                             </button> -->
