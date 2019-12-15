@@ -70,158 +70,160 @@
             <section class="dashboard">
                 <h2 class="text-center config-title-h1">Lịch Sử Gạch Thẻ</h2>
                 <div class="container-fluid">
-                    <form>
-                        <div class="row">
-                            <div class="col-sm-7 col-config">
-                                <label class="col-sm-12 form-control-label">Nhập Thông Tin Cần Tìm</label>
+                    <div class="row">
+                        <div class="col-sm-7 col-config">
+                            <label class="col-sm-12 form-control-label">Nhập Thông Tin Cần Tìm</label>
+                            <div class="col-sm-12 col-config">
+                                <input type="text" name="keySearch" class="form-control" [(ngModel)]="searchKey">
+                            </div>
+                        </div>
+                        <div class="col-sm-2 text-center col-config">
+                            <div class="row">
+                                <label class="col-sm-12 form-control-label">&nbsp;</label>
+                                <div class="col-sm-12 col-config" *ngIf="currentUser.role === '2'">
+                                    <select class="form-control" [(ngModel)]="selectedValue" name="theSelect">
+                                        <option value='-1' selected>All</option>
+                                        <option *ngFor="let c of listPartnerModelOption" [value]="c.id"
+                                            ng-selected="c.name == selectedValue.name">{{c.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 text-center col-config">
+                            <div class="row">
+                                <label class="col-sm-12 form-control-label">&nbsp;</label>
                                 <div class="col-sm-12 col-config">
-                                    <input type="text" name="keySearch" class="form-control" [(ngModel)]="searchKey">
-                                </div>
-                            </div>
-                            <div class="col-sm-2 text-center col-config">
-                                <div class="row">
-                                    <label class="col-sm-12 form-control-label">&nbsp;</label>
-                                    <div class="col-sm-12 col-config" *ngIf="currentUser.role === '2'">
-                                        <select class="form-control" [(ngModel)]="selectedValue" name="theSelect">
-                                            <option value='-1' selected>All</option>
-                                            <option *ngFor="let c of listPartnerModelOption" [value]="c.id"
-                                                ng-selected="c.name == selectedValue.name">{{c.name}}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-2 text-center col-config">
-                                <div class="row">
-                                    <label class="col-sm-12 form-control-label">&nbsp;</label>
-                                    <div class="col-sm-12 col-config">
-                                        <div class="form-group row">
-                                            <div class="col-sm-8 col-config">
-                                                <div class="form-group">
-                                                    <div class="col-sm-12 col-config">
-                                                        <input type="text" name="keySearch" placeholder="Nhập Thông Tin Cần Tìm" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4 text-center col-config">
-                                                <div class="form-group row">
-                                                    <div class="col-sm-6" *ngIf="currentUser.role === '2'">
-                                                        <select class="form-control" [(ngModel)]="selectedValue" name="theSelect">
-                                            <option value='-1' selected>All</option>
-                                            <option *ngFor="let c of listPartnerModelOption" [value]="c.id"
-                                                ng-selected="c.name == selectedValue.name">{{c.name}}</option>
-                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-1 text-center col-config">
-                                                <div class="row">
-                                                    <label class="col-sm-12 form-control-label">&nbsp;</label>
-                                                    <div class="col-sm-12 col-config" (click)="search()">
-                                                        <button class="btn btn-primary">Tìm Kiếm</button>
-                                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8 col-config">
+                                            <div class="form-group">
+                                                <div class="col-sm-12 col-config">
+                                                    <input type="text" name="keySearch" placeholder="Nhập Thông Tin Cần Tìm" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
-                    </form>
-                    <div class="container-fluid">
-                        <div class="example-container mat-elevation-z8">
-                            <mat-table [dataSource]="listData" matSort>
-                                <!-- cài đặt các row mat-sort-header cho phép người dùng sort -->
-                                <ng-container matColumnDef="ID">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-                                    <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="CARD" sticky>
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Mã thẻ</mat-header-cell>
-                                    <mat-cell *matCellDef="let element">{{element.card}}</mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="SERI" sticky>
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Seri</mat-header-cell>
-                                    <mat-cell *matCellDef="let element">{{element.seri}}</mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="TYPE" sticky>
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Kiểu nạp</mat-header-cell>
-                                    <mat-cell *matCellDef="let element">{{element.type == 0 ? '199': '136'}}</mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="AMOUNT">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Số tiền</mat-header-cell>
-                                    <mat-cell *matCellDef="let element">{{element.amount}}</mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="PHONE">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Số điện thoại</mat-header-cell>
-                                    <mat-cell *matCellDef="let element">{{element.phone}}</mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="TRANSID">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Mã đối chiếu</mat-header-cell>
-                                    <mat-cell *matCellDef="let element">{{element.transid}}</mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="REALMONEY">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Nạp được</mat-header-cell>
-                                    <mat-cell *matCellDef="let element">{{element.realMoney}}</mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="STATUS">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Trạng thái
-                                    </mat-header-cell>
-                                    <mat-cell *matCellDef="let element" [ngClass]="{'background-color : red': true}">{{element.status == 0 ? 'Đang đợi' : element.status == 1 ? 'Đang nạp' : element.status == 2 ? 'Thành công' : element.status == 3 ? 'Thẻ Lỗi' : element.status == 4 ? 'Lỗi số điện thoại' : element.status == 5 ? 'Không
-                                        nợ cước' : 'Không xác định' }}</mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="TIME_CREATED">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Thời gian tạo
-                                    </mat-header-cell>
-                                    <mat-cell *matCellDef="let element">
-                                        {{element.timeCreated | date:'hh:mm:ss - dd/MM/yyyy'}}</mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="TIME_UPDATED">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Thời gian hoàn thành
-                                    </mat-header-cell>
-                                    <mat-cell *matCellDef="let element">
-                                        {{element.timeUpdated | date:'hh:mm:ss - dd/MM/yyyy'}}</mat-cell>
-                                </ng-container>
-                                <!-- Hàng hiện các nút icon hành động -->
-                                <ng-container matColumnDef="ACTIONS">
-                                    <mat-header-cell *matHeaderCellDef>Lệnh</mat-header-cell>
-                                    <mat-cell *matCellDef="let row">
-                                        <!-- có thể custom các nút ở đây -->
-                                        <button mat-icon-button color="red" (click)="reCall(row.id)">
-                                            <mat-icon>launch</mat-icon>
-                                            Callback
-                                        </button>
-                                        <!-- <button mat-icon-button color="warn">
+                                        <div class="col-sm-4 text-center col-config">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6" *ngIf="currentUser.role === '2'">
+                                                    <select class="form-control" [(ngModel)]="selectedValue" name="theSelect">
+                                                        <option value='-1' selected>All</option>
+                                                        <option *ngFor="let c of listPartnerModelOption" [value]="c.id"
+                                                            ng-selected="c.name == selectedValue.name">{{c.name}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1 text-center col-config">
+                                            <div class="row">
+                                                <label class="col-sm-12 form-control-label">&nbsp;</label>
+                                                <div class="col-sm-12 col-config" (click)="search()">
+                                                    <button class="btn btn-primary">Tìm Kiếm</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="example-container mat-elevation-z8">
+                                <mat-table [dataSource]="listData" matSort>
+                                    <!-- cài đặt các row mat-sort-header cho phép người dùng sort -->
+                                    <ng-container matColumnDef="ID">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+                                        <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="CARD" sticky>
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Mã thẻ</mat-header-cell>
+                                        <mat-cell *matCellDef="let element">{{element.card}}</mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="SERI" sticky>
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Seri</mat-header-cell>
+                                        <mat-cell *matCellDef="let element">{{element.seri}}</mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="TYPE" sticky>
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Kiểu nạp</mat-header-cell>
+                                        <mat-cell *matCellDef="let element">{{element.type == 0 ? '199': '136'}}
+                                        </mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="AMOUNT">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Số tiền</mat-header-cell>
+                                        <mat-cell *matCellDef="let element">{{element.amount}}</mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="PHONE">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Số điện thoại
+                                        </mat-header-cell>
+                                        <mat-cell *matCellDef="let element">{{element.phone}}</mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="TRANSID">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Mã đối chiếu
+                                        </mat-header-cell>
+                                        <mat-cell *matCellDef="let element">{{element.transid}}</mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="REALMONEY">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Nạp được</mat-header-cell>
+                                        <mat-cell *matCellDef="let element">{{element.realMoney}}</mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="STATUS">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Trạng thái
+                                        </mat-header-cell>
+                                        <mat-cell *matCellDef="let element" [ngClass]="{'background-color : red': true}">{{element.status == 0 ? 'Đang đợi' : element.status == 1 ? 'Đang nạp' : element.status == 2 ? 'Thành công' : element.status == 3 ? 'Thẻ Lỗi' : element.status == 4 ? 'Lỗi số điện thoại' : element.status == 5 ? 'Không
+                                            nợ cước' : 'Không xác định' }}</mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="TIME_CREATED">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Thời gian tạo
+                                        </mat-header-cell>
+                                        <mat-cell *matCellDef="let element">
+                                            {{element.timeCreated | date:'hh:mm:ss - dd/MM/yyyy'}}</mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="TIME_UPDATED">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Thời gian hoàn thành
+                                        </mat-header-cell>
+                                        <mat-cell *matCellDef="let element">
+                                            {{element.timeUpdated | date:'hh:mm:ss - dd/MM/yyyy'}}</mat-cell>
+                                    </ng-container>
+                                    <!-- Hàng hiện các nút icon hành động -->
+                                    <ng-container matColumnDef="ACTIONS">
+                                        <mat-header-cell *matHeaderCellDef>Lệnh</mat-header-cell>
+                                        <mat-cell *matCellDef="let row">
+                                            <!-- có thể custom các nút ở đây -->
+                                            <button mat-icon-button color="red" (click)="reCall(row.id)">
+                                                <mat-icon>launch</mat-icon>
+                                                Callback
+                                            </button>
+                                            <!-- <button mat-icon-button color="warn">
                                                 <mat-icon>launch</mat-icon>
                                             </button> -->
-                                    </mat-cell>
-                                </ng-container>
-                                <!-- end hành động -->
-                                <!-- cài đặt các header lấy từ biến displayedColumns -->
-                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                                <!-- end cài đặt biến -->
+                                        </mat-cell>
+                                    </ng-container>
+                                    <!-- end hành động -->
+                                    <!-- cài đặt các header lấy từ biến displayedColumns -->
+                                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                                    <!-- end cài đặt biến -->
 
-                                <!-- Hàng hiện trạng thái đang loading nếu loading xong sẽ biến mất -->
-                                <ng-container matColumnDef="loading">
-                                    <mat-footer-cell *matFooterCellDef colspan="6">
-                                        Loading data...
-                                    </mat-footer-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="noData">
-                                    <mat-footer-cell *matFooterCellDef colspan="6">
-                                        No data.
-                                    </mat-footer-cell>
-                                </ng-container>
-                                <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}">
-                                </mat-footer-row>
-                                <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}">
-                                </mat-footer-row>
-                                <!-- end loading -->
-                            </mat-table>
-                            <!-- hiện paging trang -->
-                            <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageOption" showFirstLastButtons (page)="getServerData($event)">
-                            </mat-paginator>
-                            <!-- kết thúc page -->
+                                    <!-- Hàng hiện trạng thái đang loading nếu loading xong sẽ biến mất -->
+                                    <ng-container matColumnDef="loading">
+                                        <mat-footer-cell *matFooterCellDef colspan="6">
+                                            Loading data...
+                                        </mat-footer-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="noData">
+                                        <mat-footer-cell *matFooterCellDef colspan="6">
+                                            No data.
+                                        </mat-footer-cell>
+                                    </ng-container>
+                                    <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}">
+                                    </mat-footer-row>
+                                    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}">
+                                    </mat-footer-row>
+                                    <!-- end loading -->
+                                </mat-table>
+                                <!-- hiện paging trang -->
+                                <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageOption" showFirstLastButtons (page)="getServerData($event)">
+                                </mat-paginator>
+                                <!-- kết thúc page -->
+                            </div>
                         </div>
                     </div>
-                    </div>
-            </section>
-            </div>
-            </div>
-            </div>
+                </div>
