@@ -1047,4 +1047,7 @@ a span {
 
 .mat-table-sticky:last-child {
     border-left: 1px solid #e0e0e0;
+    text-align: center;
+    margin: auto;
+    width: 36%;
 }

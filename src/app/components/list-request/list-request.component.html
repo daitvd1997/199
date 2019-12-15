@@ -94,23 +94,34 @@
                                 <div class="row">
                                     <label class="col-sm-12 form-control-label">&nbsp;</label>
                                     <div class="col-sm-12 col-config">
-                                        <select class="form-control" [(ngModel)]="selectedValue" name="theSelect">
+                                        <div class="form-group row">
+                                            <div class="col-sm-8 col-config">
+                                                <div class="form-group">
+                                                    <div class="col-sm-12 col-config">
+                                                        <input type="text" name="keySearch" placeholder="Nhập Thông Tin Cần Tìm" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 text-center col-config">
+                                                <div class="form-group row">
+                                                    <div class="col-sm-6" *ngIf="currentUser.role === '2'">
+                                                        <select class="form-control" [(ngModel)]="selectedValue" name="theSelect">
                                             <option value='-1' selected>All</option>
                                             <option *ngFor="let c of listPartnerModelOption" [value]="c.id"
                                                 ng-selected="c.name == selectedValue.name">{{c.name}}</option>
                                         </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-1 text-center col-config">
-                                <div class="row">
-                                    <label class="col-sm-12 form-control-label">&nbsp;</label>
-                                    <div class="col-sm-12 col-config" (click)="search()">
-                                        <button class="btn btn-primary">Tìm Kiếm</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1 text-center col-config">
+                                                <div class="row">
+                                                    <label class="col-sm-12 form-control-label">&nbsp;</label>
+                                                    <div class="col-sm-12 col-config" (click)="search()">
+                                                        <button class="btn btn-primary">Tìm Kiếm</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                     </form>
                     <div class="container-fluid">
                         <div class="example-container mat-elevation-z8">
@@ -209,8 +220,8 @@
                             <!-- kết thúc page -->
                         </div>
                     </div>
-                </div>
+                    </div>
             </section>
-        </div>
-    </div>
-</div>
+            </div>
+            </div>
+            </div>
